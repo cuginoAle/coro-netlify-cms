@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .spinner {
+    @apply rounded-full w-1em h-1em inline-block animate-spin mr-2 border-0.2em border-stone-900/20 border-t-inherit;
+  }
+}
