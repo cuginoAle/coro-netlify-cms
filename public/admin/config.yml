@@ -6,43 +6,59 @@ publish_mode: editorial_workflow
 media_folder: 'public/images'
 public_folder: '/images'
 collections:
-  - label: 'Globals'
-    name: 'globals'
+  - label: 'Global'
+    name: 'global'
     files:
-      - label: 'Site Copy'
-        name: 'site_copy'
+      - label: 'Settaggi di base'
+        name: 'settings'
+        file: '_data/settings.json'
         delete: false
         create: true
-        file: '_data/copy.json'
         fields:
-          - { label: 'Tagline', name: 'tagline', widget: 'string' }
-          - { label: 'Headline', name: 'headline', widget: 'string' }
-  - name: 'standalone pages'
-    label: 'Standalone Pages'
-    folder: 'standalone-pages'
-    slug: ''
-    file: 'standalone-pages/.mdx'
-    create: true
-    extension: mdx
-    format: frontmatter
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - {
-          label: 'SEO Meta Title',
-          name: 'metaTitle',
-          widget: 'string',
-          required: false,
-        }
-      - {
-          label: 'SEO Meta Description',
-          name: 'metaDesc',
-          widget: 'string',
-          required: false,
-        }
-      - {
-          label: 'Social Image',
-          name: 'socialImage',
-          widget: 'image',
-          required: false,
-        }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Titolo', name: 'title', widget: 'string' }
+          - { label: 'Sottotitolo', name: 'subtitle', widget: 'string' }
+  - label: 'Home'
+    name: 'home'
+    files:
+      - label: 'Pagina iniziale'
+        name: 'homepage'
+        delete: false
+        create: true
+        file: '_data/home.json'
+        fields:
+          - { label: 'Intro', name: 'intro', widget: 'markdown' }
+          - {
+              label: 'Foto',
+              name: 'picture',
+              widget: 'image',
+              allow_multiple: false,
+            }
+  # - name: 'standalone pages'
+  #   label: 'Standalone Pages'
+  #   folder: 'standalone-pages'
+  #   slug: ''
+  #   file: 'standalone-pages/.mdx'
+  #   create: true
+  #   extension: mdx
+  #   format: frontmatter
+  #   fields:
+  #     - { label: 'Title', name: 'title', widget: 'string' }
+  #     - {
+  #         label: 'SEO Meta Title',
+  #         name: 'metaTitle',
+  #         widget: 'string',
+  #         required: false,
+  #       }
+  #     - {
+  #         label: 'SEO Meta Description',
+  #         name: 'metaDesc',
+  #         widget: 'string',
+  #         required: false,
+  #       }
+  #     - {
+  #         label: 'Social Image',
+  #         name: 'socialImage',
+  #         widget: 'image',
+  #         required: false,
+  #       }
+  #     - { label: 'Body', name: 'body', widget: 'markdown' }
