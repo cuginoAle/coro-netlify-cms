@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
   webpack: (cfg) => {
     cfg.module.rules.push({
       test: /\.md$/,
