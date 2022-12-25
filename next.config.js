@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    disableStaticImages: true,
+    unoptimized: true,
   },
   webpack: (cfg) => {
     cfg.module.rules.push({
