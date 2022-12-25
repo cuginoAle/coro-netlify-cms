@@ -1,12 +1,14 @@
 .mainWrapper {
   display: flex;
-  justify-content: center;
-  max-width: 1200px;
-  background-color: rgba(0, 0, 0, 0.2);
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   margin: 20px;
+  flex-direction: column;
 }
 .mainContent {
+  width: 100%;
+  max-width: 1200px;
   padding: 20px;
 }
