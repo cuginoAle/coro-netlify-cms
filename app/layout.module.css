@@ -1,0 +1,12 @@
+.mainWrapper {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  margin: 20px;
+}
+.mainContent {
+  padding: 20px;
+}
