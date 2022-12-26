@@ -1,0 +1,29 @@
+.mainWrapper {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  flex-direction: column;
+}
+.mainContent {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(18px);
+  border-radius: 10px;
+  max-width: 1200px;
+  width: 100%;
+  color: aliceblue;
+}
+
+.header {
+  border-radius: 10px 10px 0 0;
+  background-color: white;
+  color: #444;
+  padding: 20px;
+}
+
+.contentWrapper {
+  border-radius: 10px;
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
