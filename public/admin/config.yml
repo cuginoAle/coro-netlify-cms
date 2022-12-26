@@ -1,4 +1,4 @@
-# local_backend: true
+local_backend: true
 backend:
   name: git-gateway
   # name: test-repo
@@ -35,6 +35,8 @@ collections:
               widget: 'image',
               allow_multiple: false,
             }
+          - { label: 'Promo', name: 'promo', widget: 'markdown' }
+          - { label: 'Storia del coro', name: 'history', widget: 'markdown' }
   # - name: 'standalone pages'
   #   label: 'Standalone Pages'
   #   folder: 'standalone-pages'

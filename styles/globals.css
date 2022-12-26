@@ -48,9 +48,18 @@ li {
   margin: 0;
 }
 
-blockquote {
-  font-style: italic;
-  opacity: 0.8;
-  font-size: 1.4em;
-  margin-top: 2em;
+.MD {
+  blockquote {
+    p {
+      font-style: italic;
+      opacity: 0.8;
+      font-size: 1.4em;
+      margin: 0;
+    }
+  }
+
+  p {
+    line-height: 1.5;
+    margin-bottom: 1.5em;
+  }
 }
