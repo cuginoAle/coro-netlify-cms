@@ -25,11 +25,11 @@ const Home = (props: HomeProps) => {
           {/* <Image src={picture} alt="Il coro" fill className="object-contain" /> */}
         </div>
 
-        <section className="m-16 flex gap-14 items-end text-3xl">
+        <section className="m-4 md:m-8 md:flex gap-14 items-end text-2xl md:text-3xl">
           <img
             src="/images/fulvio.png"
             alt="fulvio"
-            className="w-1/4 min-w-[200] shrink-0"
+            className="w-1/4 min-w-[120px] shrink-0 mr-4 float-left md:float-none md:mr-0"
           />
           <ReactMarkdown className="MD" remarkPlugins={[remarkGfm]}>
             {promo}
