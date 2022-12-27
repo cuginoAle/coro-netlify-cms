@@ -18,6 +18,10 @@
   background-color: white;
   color: #444;
   padding: 20px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .contentWrapper {

@@ -1,4 +1,8 @@
 .hero {
-  @apply w-full h-96 relative;
+  @apply w-full relative;
+  height: 450px;
   background-image: var(--hero-img);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
