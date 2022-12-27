@@ -21,11 +21,7 @@ const Home = (props: HomeProps) => {
       </Head>
 
       <Layout {...settings}>
-        <div
-          className={style.hero}
-          style={{ '--hero': `url(${encodeURI(picture)}` }}
-          data-img={picture}
-        >
+        <div className={style.hero} style={{ '--hero-img': `url(${picture})` }}>
           {/* <Image src={picture} alt="Il coro" fill className="object-contain" /> */}
         </div>
 
