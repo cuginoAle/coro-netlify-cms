@@ -18,7 +18,7 @@ const Layout = (props: LayoutProps) => {
           height={80}
         />
         <div className={style.titleWrapper}>
-          <h1 className="text-2xl font-semibold">{props.title}</h1>
+          <h1 className="text-xl font-semibold">{props.title}</h1>
           <h2 className="">{props.subtitle}</h2>
         </div>
       </header>
