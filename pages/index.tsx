@@ -21,9 +21,10 @@ const Home = (props: HomeProps) => {
       </Head>
 
       <Layout {...settings}>
-        <div className={style.hero} style={{ '--hero-img': `url(${picture})` }}>
-          {/* <Image src={picture} alt="Il coro" fill className="object-contain" /> */}
-        </div>
+        <section
+          className={style.hero}
+          style={{ '--hero-img': `url(${picture})` }}
+        ></section>
 
         <section className="m-4 md:m-8 md:flex gap-14 items-end text-2xl md:text-3xl">
           <img

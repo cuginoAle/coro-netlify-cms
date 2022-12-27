@@ -1,6 +1,6 @@
 .hero {
   @apply w-full relative;
-  height: 450px;
+  padding-bottom: 50%;
   background-image: var(--hero-img);
   background-position: center;
   background-size: cover;
