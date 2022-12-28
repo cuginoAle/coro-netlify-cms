@@ -36,7 +36,30 @@ collections:
               allow_multiple: false,
             }
           - { label: 'Promo', name: 'promo', widget: 'markdown' }
-          - { label: 'Storia del coro', name: 'history', widget: 'markdown' }
+
+  - label: 'Coristi'
+    name: 'coristi'
+    label_singular: 'Corista'
+    title: 'nome'
+    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    folder: '_data/coristi'
+    extension: json
+    create: true
+    fields:
+      - { label: 'Nominativo', name: 'title', widget: 'string' }
+      - {
+          label: 'Foto',
+          name: 'picture',
+          widget: 'image',
+          allow_multiple: false,
+        }
+      - {
+          label: 'Voce',
+          name: 'voce',
+          widget: 'select',
+          options: ['Soprano', 'Contralto', 'Tenore', 'Basso'],
+        }
+
   # - name: 'standalone pages'
   #   label: 'Standalone Pages'
   #   folder: 'standalone-pages'

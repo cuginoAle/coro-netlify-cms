@@ -48,16 +48,19 @@ li {
   margin: 0;
 }
 
-.MD {
+.citazioni {
   blockquote {
-    p {
-      font-style: italic;
-      opacity: 0.8;
-      font-size: 1.4em;
-      margin: 0;
-    }
+    margin: 0 0 1em;
   }
+  > p {
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 0.8em;
+    text-align: right;
+  }
+}
 
+.MD {
   p + p {
     line-height: 1.5;
     margin-top: 1.5em;

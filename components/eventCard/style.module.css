@@ -1,0 +1,29 @@
+.wrapper {
+  @apply flex gap-2;
+}
+
+.banner {
+  padding: 1em;
+  background-color: #e47703;
+  color: #fff;
+  background-image: linear-gradient(
+    130deg,
+    #00000060 0,
+    #00000020 25%,
+    #00000070 50%,
+    #00000020 75%,
+    #00000080 100%
+  );
+}
+
+.date {
+  @apply flex flex-col items-center;
+}
+
+.day {
+  @apply text-3xl font-bold text-center;
+}
+
+.month {
+  @apply m-0;
+}
