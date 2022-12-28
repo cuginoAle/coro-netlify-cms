@@ -6,3 +6,29 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.promo {
+  background-image: url(/images/organo_2.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  padding: 20px;
+  @media (min-width: 768px) {
+    padding: 60px 30px;
+  }
+}
+.promoContent {
+  max-width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 1.4em;
+  margin: 1rem;
+  @media (min-width: 768px) {
+    max-width: 50%;
+    margin: 2rem;
+    padding: 60px;
+  }
+}
