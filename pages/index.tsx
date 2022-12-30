@@ -8,15 +8,30 @@ import Head from 'next/head';
 import Layout from './layout';
 import { EventCard, EventCardProps } from 'components/eventCard/eventCard';
 import CustomLink from 'components/link/link';
+import { getCollection } from 'helpers/getCollection';
+import { getFile } from 'helpers/getFile';
 
 interface HomeProps {
-  data: string;
-  settings: string;
+  data: {
+    intro: string;
+    picture: string;
+    history: string;
+    promo: string;
+  };
+  settings: {
+    title: string;
+    subtitle: string;
+  };
   events: EventCardProps[];
+  inEvidenza: {
+    short_title: string;
+    date: string;
+    picture?: string;
+  }[];
 }
 const Home = (props: HomeProps) => {
-  const { intro, picture, history, promo } = JSON.parse(props.data);
-  const settings = JSON.parse(props.settings);
+  const { intro, picture, history, promo } = props.data;
+  const settings = props.settings;
 
   return (
     <>
@@ -39,6 +54,28 @@ const Home = (props: HomeProps) => {
           <ReactMarkdown className="MD citazioni" remarkPlugins={[remarkGfm]}>
             {intro}
           </ReactMarkdown>
+        </section>
+
+        <section className="p-10 ">
+          <h2 className="border-l-8 border-accent text-2xl font-semibold pl-4 mb-8">
+            In evidenza
+          </h2>
+          <ul className="flex gap-4 flex-wrap">
+            {props.inEvidenza.map((event) => {
+              return (
+                <li
+                  key={event.short_title}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <EventCard
+                    title={event.short_title}
+                    {...event}
+                    className=" h-full"
+                  />
+                </li>
+              );
+            })}
+          </ul>
         </section>
 
         <section className="p-10 ">
@@ -87,29 +124,18 @@ const Home = (props: HomeProps) => {
 };
 
 export async function getStaticProps() {
-  // reading the vents folder
-  const fs = require('fs');
-  const path = require('path');
-  const eventsFile = fs.readdirSync(path.join(process.cwd(), '_data/eventi'));
-  const events: EventCardProps[] = eventsFile.map((event: EventCardProps) => {
-    const { title, date, description } = JSON.parse(
-      fs.readFileSync(path.join(process.cwd(), '_data/eventi', event), 'utf8'),
-    );
-    return {
-      title,
-      date,
-      description,
-    };
-  });
+  const events = getCollection('eventi');
+  const inEvidenza = getCollection('in_evidenza');
 
-  const data = await import('_data/home.json');
-  const settings = await import('_data/settings.json');
+  const data = getFile('home.json');
+  const settings = getFile('settings.json');
 
   return {
     props: {
-      data: JSON.stringify(data),
-      settings: JSON.stringify(settings),
+      data,
+      settings,
       events,
+      inEvidenza,
     },
   };
 }
