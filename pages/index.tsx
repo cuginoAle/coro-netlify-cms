@@ -7,6 +7,7 @@ import style from './index.module.css';
 import Head from 'next/head';
 import Layout from './layout';
 import { EventCard, EventCardProps } from 'components/eventCard/eventCard';
+import CustomLink from 'components/link/link';
 
 interface HomeProps {
   data: string;
@@ -40,7 +41,20 @@ const Home = (props: HomeProps) => {
           </ReactMarkdown>
         </section>
 
-        {/* <section className="bg-slate-800/70 p-5"> */}
+        <section className="p-10 ">
+          <h2 className="border-l-8 border-accent text-2xl font-semibold pl-4 mb-8">
+            Prossimi eventi
+          </h2>
+          <ul className="flex gap-4 flex-wrap">
+            {props.events.map((event) => {
+              return (
+                <li key={event.title} className="sm:w-1/2 md:w-1/3">
+                  <EventCard {...event} className=" h-full" />
+                </li>
+              );
+            })}
+          </ul>
+        </section>
         <section className={style.promo}>
           <ReactMarkdown
             className={style.promoContent}
@@ -50,16 +64,22 @@ const Home = (props: HomeProps) => {
           </ReactMarkdown>
         </section>
 
-        <section className="bg-slate-800/70 p-5 mb-5 text-xl">
-          <ReactMarkdown className="MD" remarkPlugins={[remarkGfm]}>
+        <section
+          className="mb-5 p-10 text-xl flex flex-col"
+          style={{ '--line-clamp': 10 }}
+        >
+          <h2 className="border-l-8 border-accent text-2xl font-semibold pl-4 mb-8">
+            La storia del coro
+          </h2>
+          <ReactMarkdown
+            className="MD multiline-ellipsis"
+            remarkPlugins={[remarkGfm]}
+          >
             {history}
           </ReactMarkdown>
-        </section>
-
-        <section className="flex gap-4 flex-wrap">
-          {props.events.map((event) => {
-            return <EventCard key={event.title} event={event} />;
-          })}
+          <CustomLink href="/" className="self-end">
+            ...continua
+          </CustomLink>
         </section>
       </Layout>
     </>
@@ -67,16 +87,23 @@ const Home = (props: HomeProps) => {
 };
 
 export async function getStaticProps() {
+  // reading the vents folder
+  const fs = require('fs');
+  const path = require('path');
+  const eventsFile = fs.readdirSync(path.join(process.cwd(), '_data/eventi'));
+  const events: EventCardProps[] = eventsFile.map((event: EventCardProps) => {
+    const { title, date, description } = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), '_data/eventi', event), 'utf8'),
+    );
+    return {
+      title,
+      date,
+      description,
+    };
+  });
+
   const data = await import('_data/home.json');
   const settings = await import('_data/settings.json');
-  // const events = await import('_data/events.json');
-  const events = [
-    {
-      title: 'Concerto di Natale',
-      date: '2022-12-24',
-      description: 'Descrizione',
-    },
-  ];
 
   return {
     props: {

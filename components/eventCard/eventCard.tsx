@@ -3,9 +3,9 @@ import style from './style.module.css';
 interface EventCardProps {
   title: string;
   date: string;
-  description: string;
-  image?: string;
-  link?: string;
+  description?: string;
+  place?: string;
+  className?: string;
 }
 //mesi da 0 a 11
 const months = [
@@ -23,11 +23,11 @@ const months = [
   'Dic',
 ];
 
-const EventCard = (props: EventCardProps) => {
+const EventCard = ({ className, ...props }: EventCardProps) => {
   const date = new Date(props.date);
 
   return (
-    <section className={style.wrapper}>
+    <section className={`${style.wrapper} ${className}`}>
       <div className={style.banner}>
         <div className={style.date}>
           <p className={style.day}>{date.getDate()}</p>
