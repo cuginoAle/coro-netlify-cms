@@ -1,4 +1,5 @@
 import style from './style.module.css';
+import Image from 'next/image';
 
 interface EventCardProps {
   title: string;
@@ -6,6 +7,7 @@ interface EventCardProps {
   description?: string;
   place?: string;
   className?: string;
+  picture?: string;
 }
 //mesi da 0 a 11
 const months = [
@@ -38,6 +40,16 @@ const EventCard = ({ className, ...props }: EventCardProps) => {
       <div className={style.content}>
         <h3 className="text-2xl font-semibold">{props.title}</h3>
         <p className="text-sm">{props.description}</p>
+        {props.picture && (
+          <div className="flex justify-center">
+            <Image
+              src={props.picture}
+              alt={props.title}
+              width="280"
+              height="280"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

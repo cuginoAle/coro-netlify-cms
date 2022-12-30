@@ -72,3 +72,45 @@ collections:
       - { label: 'Data', name: 'date', widget: 'date' }
       - { label: 'Descrizione', name: 'description', widget: 'markdown' }
       - { label: 'Luogo', name: 'place', widget: 'string' }
+
+  - label: 'In evidenza'
+    name: 'in_evidenza'
+    label_singular: 'sezione'
+    title: 'titolo'
+    folder: '_data/in_evidenza'
+    extension: json
+    create: true
+    fields:
+      - { label: 'Titolo breve', name: 'short_title', widget: 'string' }
+      - { label: 'Data', name: 'date', widget: 'date' }
+      - { label: 'Intestazione pagina', name: 'headings', widget: 'markdown' }
+      - {
+          label: 'Descrizione',
+          name: 'description',
+          widget: 'markdown',
+          required: false,
+        }
+      - {
+          label: 'Foto',
+          name: 'picture',
+          widget: 'image',
+          allow_multiple: true,
+        }
+      - {
+          label: 'Allegati',
+          name: 'allegati',
+          widget: 'list',
+          label_singular: 'allegato',
+          allow_multiple: true,
+          fields:
+            [
+              { label: 'Titolo', name: 'title', widget: 'string' },
+              { label: 'File', name: 'file', widget: 'file', required: false },
+              {
+                label: 'Link',
+                name: 'link',
+                widget: 'string',
+                required: false,
+              },
+            ],
+        }
