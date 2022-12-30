@@ -60,32 +60,15 @@ collections:
           options: ['Soprano', 'Contralto', 'Tenore', 'Basso'],
         }
 
-  # - name: 'standalone pages'
-  #   label: 'Standalone Pages'
-  #   folder: 'standalone-pages'
-  #   slug: ''
-  #   file: 'standalone-pages/.mdx'
-  #   create: true
-  #   extension: mdx
-  #   format: frontmatter
-  #   fields:
-  #     - { label: 'Title', name: 'title', widget: 'string' }
-  #     - {
-  #         label: 'SEO Meta Title',
-  #         name: 'metaTitle',
-  #         widget: 'string',
-  #         required: false,
-  #       }
-  #     - {
-  #         label: 'SEO Meta Description',
-  #         name: 'metaDesc',
-  #         widget: 'string',
-  #         required: false,
-  #       }
-  #     - {
-  #         label: 'Social Image',
-  #         name: 'socialImage',
-  #         widget: 'image',
-  #         required: false,
-  #       }
-  #     - { label: 'Body', name: 'body', widget: 'markdown' }
+  - label: 'Eventi'
+    name: 'eventi'
+    label_singular: 'Evento'
+    title: 'titolo'
+    folder: '_data/eventi'
+    extension: json
+    create: true
+    fields:
+      - { label: 'Titolo', name: 'title', widget: 'string' }
+      - { label: 'Data', name: 'date', widget: 'date' }
+      - { label: 'Descrizione', name: 'description', widget: 'markdown' }
+      - { label: 'Luogo', name: 'place', widget: 'string' }

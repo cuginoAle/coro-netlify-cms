@@ -22,6 +22,11 @@ module.exports = {
         '0.2em': '0.2em',
         '0.4em': '0.4em',
       },
+      colors: {
+        primary: '#1E1E1E',
+        accent: '#ff6100',
+        'accent-light': '#ffb700',
+      },
     },
   },
   plugins: [],
