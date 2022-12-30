@@ -25,6 +25,7 @@ interface HomeProps {
   events: EventCardProps[];
   inEvidenza: {
     short_title: string;
+    short_description?: string;
     date: string;
     picture?: string;
   }[];
@@ -56,10 +57,10 @@ const Home = (props: HomeProps) => {
           </ReactMarkdown>
         </section>
 
-        <section className="p-10 ">
-          <h2 className="border-l-8 border-accent text-2xl font-semibold pl-4 mb-8">
-            In evidenza
-          </h2>
+        {/* <h2 className="border-l-8 border-accent text-2xl font-semibold pl-4 mb-8">
+          In evidenza
+        </h2> */}
+        <section className="p-10 m-10 highlighted">
           <ul className="flex gap-4 flex-wrap">
             {props.inEvidenza.map((event) => {
               return (
@@ -68,8 +69,9 @@ const Home = (props: HomeProps) => {
                   className="flex flex-col items-center gap-2"
                 >
                   <EventCard
-                    title={event.short_title}
                     {...event}
+                    title={event.short_title}
+                    description={event.short_description}
                     className=" h-full"
                   />
                 </li>
