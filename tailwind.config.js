@@ -24,8 +24,8 @@ module.exports = {
       },
       colors: {
         primary: '#1E1E1E',
-        accent: '#ff6100',
-        'accent-light': '#ffb700',
+        accent: 'var(--accent)',
+        'accent-light': 'var(--accent-light)',
       },
     },
   },

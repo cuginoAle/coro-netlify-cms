@@ -82,6 +82,12 @@ collections:
     create: true
     fields:
       - { label: 'Titolo breve', name: 'short_title', widget: 'string' }
+      - {
+          label: 'Descrizione breve',
+          name: 'short_description',
+          required: false,
+          widget: 'string',
+        }
       - { label: 'Data', name: 'date', widget: 'date' }
       - { label: 'Intestazione pagina', name: 'headings', widget: 'markdown' }
       - {

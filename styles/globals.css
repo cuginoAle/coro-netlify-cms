@@ -17,6 +17,10 @@ html {
   background-size: cover;
   background-attachment: fixed;
   --line-clamp: 3;
+  --accent: #ff6100;
+  --accent-50: #ff610050;
+  --accent-light: #ffb700;
+  --accent-light-50: #ffb70050;
 }
 html,
 body {
@@ -70,5 +74,31 @@ body {
       --line-clamp
     ); /* start showing ellipsis when 3rd line is reached */
     white-space: pre-wrap; /* let the text wrap preserving spaces */
+  }
+
+  .highlighted {
+    position: relative;
+    border: 1px solid var(--accent-light-50);
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3em;
+      height: 3em;
+      @apply border-accent-light border-solid;
+    }
+
+    &:before {
+      border-width: 10px 0 0 10px;
+    }
+    &:after {
+      top: auto;
+      left: auto;
+      right: 0;
+      bottom: 0;
+      border-width: 0 10px 10px 0;
+    }
   }
 }
