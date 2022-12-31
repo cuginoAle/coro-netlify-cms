@@ -79,6 +79,7 @@ body {
   .highlighted {
     position: relative;
     border: 1px solid var(--accent-light-50);
+    background-color: rgba(0, 0, 0, 0.3);
     &:before,
     &:after {
       content: '';
