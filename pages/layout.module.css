@@ -1,8 +1,8 @@
 .mainWrapper {
   display: flex;
   align-items: center;
-  margin: 20px;
   flex-direction: column;
+  @apply sm:m-5;
 }
 .mainContent {
   background-color: rgba(0, 0, 0, 0.7);

@@ -1,0 +1,7 @@
+@layer my-custom-styles {
+  .eventWrapper {
+    @screen md {
+      width: calc(50% - 16px);
+    }
+  }
+}

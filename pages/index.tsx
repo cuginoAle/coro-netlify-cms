@@ -10,6 +10,7 @@ import { EventCard, EventCardProps } from 'components/eventCard/eventCard';
 import CustomLink from 'components/link/link';
 import { getCollection } from 'helpers/getCollection';
 import { getFile } from 'helpers/getFile';
+import { EventsList } from 'components/eventsList/eventsList';
 
 interface HomeProps {
   data: {
@@ -60,39 +61,32 @@ const Home = (props: HomeProps) => {
         {/* <h2 className="border-l-8 border-accent text-2xl font-semibold pl-4 mb-8">
           In evidenza
         </h2> */}
-        <section className="p-10 m-10 highlighted">
-          <ul className="flex gap-4 flex-wrap">
+        <section className="p-8 text-center m-4 md:m-8 highlighted">
+          <ul className="flex flex-col flex-wrap">
             {props.inEvidenza.map((event) => {
               return (
                 <li
                   key={event.short_title}
-                  className="flex flex-col items-center gap-2"
+                  className="flex flex-col items-center gap-4"
                 >
-                  <EventCard
-                    {...event}
-                    title={event.short_title}
-                    description={event.short_description}
-                    className=" h-full"
-                  />
+                  <h2 className="text-3xl">{event.short_title}</h2>
+                  <p>{event.short_description}</p>
+                  {event.picture && (
+                    <Image
+                      src={event.picture}
+                      alt={event.short_title}
+                      width={300}
+                      height={300}
+                    />
+                  )}
                 </li>
               );
             })}
           </ul>
         </section>
 
-        <section className="p-10 ">
-          <h2 className="border-l-8 border-accent text-2xl font-semibold pl-4 mb-8">
-            Prossimi eventi
-          </h2>
-          <ul className="flex gap-4 flex-wrap">
-            {props.events.map((event) => {
-              return (
-                <li key={event.title} className="sm:w-1/2 md:w-1/3">
-                  <EventCard {...event} className=" h-full" />
-                </li>
-              );
-            })}
-          </ul>
+        <section className="m-4 md:m-8 ">
+          <EventsList events={props.events} />
         </section>
         <section className={style.promo}>
           <ReactMarkdown
@@ -104,7 +98,7 @@ const Home = (props: HomeProps) => {
         </section>
 
         <section
-          className="mb-5 p-10 text-xl flex flex-col"
+          className="m-4 md:m-8 text-xl flex flex-col"
           style={{ '--line-clamp': 10 }}
         >
           <h2 className="border-l-8 border-accent text-2xl font-semibold pl-4 mb-8">
