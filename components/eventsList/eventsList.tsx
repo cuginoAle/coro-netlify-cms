@@ -1,4 +1,5 @@
 import { EventCard, EventCardProps } from 'components/eventCard/eventCard';
+import { Heading } from 'components/heading';
 import style from './style.module.css';
 
 interface EventsListProps {
@@ -7,9 +8,8 @@ interface EventsListProps {
 const EventsList = ({ events }: EventsListProps) => {
   return (
     <>
-      <h2 className="border-l-8 border-accent text-2xl font-semibold pl-4 mb-8">
-        Prossimi eventi
-      </h2>
+      <Heading>Prossimi eventi</Heading>
+
       <ul className="flex gap-4 flex-wrap">
         {events.map((event) => {
           return (
