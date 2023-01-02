@@ -49,7 +49,11 @@ const Home = (props: HomePageProps) => {
         </section>
 
         <section className="p-8 text-center m-4 md:m-8 highlighted">
-          <Link href="/inevidenza" className="flex flex-col items-center gap-4">
+          <Link
+            href="/inevidenza"
+            passHref
+            className="flex flex-col items-center gap-4"
+          >
             <h2 className="text-3xl">{inEvidenza.short_title}</h2>
 
             {inEvidenza.short_description && (
