@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import Link from 'next/link';
 import style from './layout.module.css';
@@ -10,6 +11,9 @@ interface LayoutProps {
 const Layout = (props: LayoutProps) => {
   return (
     <div className={style.mainWrapper}>
+      <div className={style.background}>
+        {/* <img src="/images/musical_notes_2.jpg" alt="" /> */}
+      </div>
       <div className={style.mainContent}>
         <header className={style.header}>
           <Link

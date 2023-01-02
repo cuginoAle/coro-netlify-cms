@@ -11,11 +11,6 @@
 @tailwind utilities;
 
 html {
-  background-image: url('/images/musical_notes_2.jpg');
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: cover;
-  background-attachment: fixed;
   --line-clamp: 3;
   --accent: #ff6100;
   --accent-50: #ff610050;
