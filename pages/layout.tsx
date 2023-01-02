@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/link-passhref */
 import Image from 'next/image';
 import Link from 'next/link';
 import style from './layout.module.css';
@@ -13,7 +12,11 @@ const Layout = (props: LayoutProps) => {
     <div className={style.mainWrapper}>
       <div className={style.mainContent}>
         <header className={style.header}>
-          <Link href="/" className="flex gap-3 items-start sm:items-center">
+          <Link
+            href="/"
+            className="flex gap-3 items-start sm:items-center"
+            passHref
+          >
             <Image
               src="/images/logoPiccolo.png"
               alt="logo"

@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/link-passhref */
 /* eslint-disable @next/next/no-img-element */
 import { getFile } from 'helpers/getFile';
 import Head from 'next/head';
@@ -87,6 +86,7 @@ const InEvidenza = (props: InEvidenzaPageProps) => {
                         </span>
                         <Link
                           href={allegato.fileUrl}
+                          passHref
                           target="_blank"
                           rel="noreferrer"
                           className="flex gap-2 items-center"
