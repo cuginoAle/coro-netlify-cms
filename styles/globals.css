@@ -55,21 +55,38 @@ body {
   }
 
   h1 {
-    @apply text-4xl font-bold mb-4;
+    @apply text-4xl font-bold;
   }
 
   h2 {
-    @apply text-3xl font-bold mb-4;
+    @apply text-3xl font-bold;
   }
 
   h3 {
-    @apply text-2xl mb-4 text-accent-light;
+    @apply text-2xl text-accent-light;
   }
 
   h4 {
-    @apply text-xl font-semibold mb-4;
+    @apply text-xl font-semibold;
   }
 
+  .MD {
+    h1 {
+      @apply mb-4;
+    }
+
+    h2 {
+      @apply mb-4;
+    }
+
+    h3 {
+      @apply mb-4;
+    }
+
+    h4 {
+      @apply mb-4;
+    }
+  }
   .citazioni {
     blockquote {
       margin: 0 0 1em;

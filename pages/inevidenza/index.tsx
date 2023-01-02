@@ -46,7 +46,7 @@ const InEvidenza = (props: InEvidenzaPageProps) => {
             />
           )}
 
-          <div className="flex flex-col items-center grow gap-4 sm:gap-8">
+          <div className="flex flex-col items-center grow gap-8">
             <ReactMarkdown className="MD" remarkPlugins={[remarkGfm]}>
               {headings}
             </ReactMarkdown>
