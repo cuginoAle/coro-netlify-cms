@@ -1,8 +1,13 @@
 .mainWrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  @apply sm:m-5;
+  @apply flex items-center flex-col sm:m-5 relative;
+}
+
+.background {
+  @apply fixed min-w-full min-h-full -z-10 left-0 top-0;
+  background-image: url(/images/musical_notes_2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .mainContent {
   background-color: rgba(0, 0, 0, 0.7);
