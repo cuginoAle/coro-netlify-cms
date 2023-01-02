@@ -1,14 +1,52 @@
 {
   "date": "2023-04-22",
-  "headings": "# Concorso Corale Internazionale InCoroNazioni\"Antonio Grazio Ferraro\"\n\n## 4a Edizione\n\n## Cassino 22 Aprile - 2023",
+  "headings": "# Concorso Corale Internazionale InCoroNazioni\n\n# \"Antonio Grazio Ferraro\"\n\n### 4a Edizione",
   "picture": "/images/in_coro_nazioni.png",
-  "description": "S﻿ome description here",
+  "description": "Il Comune di **Cassino**, la famiglia **Ferraro** e l'Associazione Musicale \"**San Benedetto**\" bandiscono la quarta edizione del Concorso Corale Internazionale InCoroNazioni \"Antonio Grazio Ferraro\", che si svolgerà il pomeriggio del 22 Aprile 2023 a Cassino.\n\n\n\nIl concorso è riservato a complessi di cantori non professionisti.",
   "allegati": [
     {
-      "title": "Modulo iscrizione",
-      "file": "/images/modulo_iscrizione_2020.pdf"
+      "title": "Modulo iscrizione 2023",
+      "fileUrl": "/docs/modulo_iscrizione_2023.pdf",
+      "lang": "it"
+    },
+    {
+      "title": "Bando di concorso 2023",
+      "fileUrl": "/docs/bando_concorso_2023.pdf",
+      "lang": "it"
+    },
+    {
+      "title": "Competition Notice 2023",
+      "fileUrl": "/docs/competition_notice_2023.pdf",
+      "lang": "en"
+    },
+    {
+      "title": "Entry Form 2023",
+      "fileUrl": "/docs/entry_form_2023.pdf",
+      "lang": "en"
     }
   ],
   "short_title": "Concorso Corale Internazionale InCoroNazioni - \"Antonio Grazio Ferraro\"",
-  "short_description": "4a Edizione"
+  "short_description": "### 4a Edizione\n\n#### C﻿assino 22/04/2023",
+  "links": [
+    {
+      "lang": "it",
+      "linkUrl": "https://youtu.be/KjkdAReF6-4",
+      "title": "Edizione 2016 (Video)"
+    },
+    {
+      "lang": "en",
+      "title": "2016 Edition (Video)",
+      "linkUrl": "https://www.youtube.com/watch?v=Sn5RKHlHiYU&feature=share"
+    },
+    {
+      "lang": "de",
+      "linkUrl": "https://www.youtube.com/watch?v=2KavJ07f4z4",
+      "title": "Wettbewerb 2016 (Video)"
+    },
+    {
+      "lang": "es",
+      "title": "Concurso 2016 (video)",
+      "linkUrl": "https://youtu.be/9K89p3wg34E"
+    }
+  ]
 }

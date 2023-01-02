@@ -17,11 +17,12 @@ const months = [
 ];
 interface DateProps {
   date: Date;
+  className?: string;
 }
 
-const DateBanner = ({ date }: DateProps) => {
+const DateBanner = ({ date, className = '' }: DateProps) => {
   return (
-    <div className={style.banner}>
+    <div className={`${style.banner} ${className}`}>
       <div className={style.date}>
         <p className={style.day}>{date.getDate()}</p>
         <p className={style.month}>{months[date.getMonth()]}</p>
