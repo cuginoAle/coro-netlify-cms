@@ -1,15 +1,12 @@
 import style from './style.module.css';
 import Image from 'next/image';
 import { DateBanner } from 'components/dateBanner/dateBanner';
+import { EventProps } from 'types';
 
-interface EventCardProps {
-  title: string;
-  date: string;
-  description?: string;
-  place?: string;
+interface EventCardProps extends EventProps {
   className?: string;
-  picture?: string;
 }
+
 const EventCard = ({ className, ...props }: EventCardProps) => {
   const date = new Date(props.date);
 

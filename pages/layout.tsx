@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/link-passhref */
 import Image from 'next/image';
+import Link from 'next/link';
 import style from './layout.module.css';
 
 interface LayoutProps {
@@ -11,17 +13,19 @@ const Layout = (props: LayoutProps) => {
     <div className={style.mainWrapper}>
       <div className={style.mainContent}>
         <header className={style.header}>
-          <Image
-            src="/images/logoPiccolo.png"
-            alt="logo"
-            className={style.logo}
-            width={40}
-            height={80}
-          />
-          <div className={style.titleWrapper}>
-            <h1 className="text-xl font-semibold">{props.title}</h1>
-            <h2 className="">{props.subtitle}</h2>
-          </div>
+          <Link href="/" className="flex gap-3 items-start sm:items-center">
+            <Image
+              src="/images/logoPiccolo.png"
+              alt="logo"
+              className={style.logo}
+              width={40}
+              height={80}
+            />
+            <div className={style.titleWrapper}>
+              <h1 className="text-xl m-0">{props.title}</h1>
+              <h2 className="text-base font-normal m-0">{props.subtitle}</h2>
+            </div>
+          </Link>
         </header>
         <section className={style.contentWrapper}>{props.children}</section>
       </div>
