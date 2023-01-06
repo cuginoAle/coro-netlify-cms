@@ -96,11 +96,9 @@ body {
 
   .multiline-ellipsis {
     overflow: hidden;
-    display: -webkit-box;
+    display: -webkit-box !important;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: var(
-      --line-clamp
-    ); /* start showing ellipsis when 3rd line is reached */
+    -webkit-line-clamp: var(--line-clamp);
     white-space: pre-wrap; /* let the text wrap preserving spaces */
   }
 

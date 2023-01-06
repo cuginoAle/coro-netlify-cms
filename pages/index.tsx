@@ -28,7 +28,7 @@ const Home = (props: HomePageProps) => {
   return (
     <>
       <Head>
-        <title>{settings.title} </title>
+        <title>{settings.title}</title>
       </Head>
 
       <Layout {...settings}>
@@ -91,7 +91,7 @@ const Home = (props: HomePageProps) => {
         >
           <Heading>La storia</Heading>
           <ReactMarkdown
-            className="MD multiline-ellipsis"
+            className="MD whitespace-pre-wrap"
             remarkPlugins={[remarkGfm]}
           >
             {history}
@@ -114,7 +114,10 @@ export async function getStaticProps() {
 
   return {
     props: {
-      data,
+      data: {
+        ...data,
+        history: data.history.substr(0, 200) + '...',
+      },
       settings,
       events,
       inEvidenza,
