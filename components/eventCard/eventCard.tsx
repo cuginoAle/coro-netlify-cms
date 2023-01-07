@@ -13,11 +13,10 @@ const EventCard = ({ className, ...props }: EventCardProps) => {
   return (
     <section className={`${style.wrapper} ${className}`}>
       <DateBanner date={date} />
-      <div className={`${style.content} flex flex-col gap-4`}>
+      <div className={`${style.content} flex flex-col gap-1`}>
         <h3 className="text-2xl font-semibold">{props.title}</h3>
-        <p className="text-lg font-semibold multiline-ellipsis">
-          {props.description}
-        </p>
+        {props.place && <h5 className="font-semibold">{props.place}</h5>}
+        <p className="text-lg multiline-ellipsis">{props.description}</p>
         {props.picture && (
           <Image
             src={props.picture}
