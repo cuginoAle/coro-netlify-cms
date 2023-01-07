@@ -14,6 +14,8 @@ import { EventProps, GlobalProps, HomeProps, InEvidenzaProps } from 'types';
 import { EventsList } from 'components/eventsList/eventsList';
 import Link from 'next/link';
 
+import { createClient } from 'next-sanity';
+
 interface HomePageProps {
   data: HomeProps;
   settings: GlobalProps;
@@ -105,12 +107,22 @@ const Home = (props: HomePageProps) => {
   );
 };
 
+const client = createClient({
+  projectId: 'ajslex8a',
+  dataset: 'production',
+  apiVersion: new Date().toISOString().split('T')[0],
+  useCdn: false,
+});
+
 export async function getStaticProps() {
+  const sanity = await client.fetch(`*[_type == "ricordi_fotografici"]{...}`);
   const events = getCollection('eventi');
 
   const inEvidenza = getFile('in_evidenza.json');
   const data = getFile('home.json');
   const settings = getFile('settings.json');
+
+  console.log('sanity', sanity);
 
   return {
     props: {
