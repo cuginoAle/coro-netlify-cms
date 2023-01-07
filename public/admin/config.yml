@@ -144,7 +144,6 @@ collections:
   - label: 'Eventi'
     name: 'eventi'
     label_singular: 'Evento'
-    title: 'titolo'
     folder: '_data/eventi'
     extension: json
     create: true
@@ -152,4 +151,29 @@ collections:
       - { label: 'Titolo', name: 'title', widget: 'string' }
       - { label: 'Data', name: 'date', widget: 'date' }
       - { label: 'Descrizione', name: 'description', widget: 'markdown' }
-      - { label: 'Luogo', name: 'place', widget: 'string' }
+      - { label: 'Luogo', name: 'place', widget: 'string', required: false }
+
+  - label: 'Ricordi fotografici'
+    name: 'ricordi'
+    label_singular: 'Ricordo fotografico'
+    folder: '_data/ricordi'
+    extension: json
+    create: true
+    fields:
+      - { label: 'Titolo', name: 'title', widget: 'string' }
+      - {
+          label: 'Descrizione',
+          name: 'description',
+          widget: 'markdown',
+          required: false,
+        }
+      - { label: 'Data', name: 'date', widget: 'date', required: false }
+      - {
+          label: 'Foto',
+          name: 'foto',
+          widget: 'image',
+          # allow_multiple: true,
+          media_folder: '/public/pictures',
+          public_folder: '/pictures',
+          media_library: { config: { multiple: true } },
+        }
