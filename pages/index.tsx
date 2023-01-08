@@ -110,19 +110,19 @@ const Home = (props: HomePageProps) => {
 const client = createClient({
   projectId: 'ajslex8a',
   dataset: 'production',
-  apiVersion: new Date().toISOString().split('T')[0],
+  apiVersion: '2023-01-07',
   useCdn: false,
 });
 
 export async function getStaticProps() {
   const sanity = await client.fetch(`*[_type == "ricordi_fotografici"]{...}`);
+  console.log('sanity', sanity);
+
   const events = getCollection('eventi');
 
   const inEvidenza = getFile('in_evidenza.json');
   const data = getFile('home.json');
   const settings = getFile('settings.json');
-
-  console.log('sanity', sanity);
 
   return {
     props: {
