@@ -37,4 +37,24 @@ interface InEvidenzaProps {
   }[];
 }
 
-export type { HomeProps, GlobalProps, EventProps, InEvidenzaProps };
+interface fotoProps {
+  title: string;
+  date: string;
+  image: string;
+}
+interface RicordiProps {
+  title: string;
+  date: string;
+  description?: string;
+  className?: string;
+  foto: fotoProps[];
+}
+
+export type {
+  HomeProps,
+  GlobalProps,
+  EventProps,
+  InEvidenzaProps,
+  RicordiProps,
+  fotoProps,
+};
