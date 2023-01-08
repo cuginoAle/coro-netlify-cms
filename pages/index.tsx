@@ -110,6 +110,7 @@ const Home = (props: HomePageProps) => {
         </section>
 
         <section className="m-4 md:m-8 ">
+          <Heading>Ricordi fotografici</Heading>
           <RidordiList ricordi={props.ricordi} />
         </section>
       </Layout>
