@@ -10,15 +10,23 @@ import { getCollection } from 'helpers/getCollection';
 import { getFile } from 'helpers/getFile';
 
 import { Heading } from 'components/heading';
-import { EventProps, GlobalProps, HomeProps, InEvidenzaProps } from 'types';
+import {
+  EventProps,
+  GlobalProps,
+  HomeProps,
+  InEvidenzaProps,
+  RicordiProps,
+} from 'types';
 import { EventsList } from 'components/eventsList/eventsList';
 import Link from 'next/link';
+import RidordiList from 'components/ridordiList/ridordiList';
 
 interface HomePageProps {
   data: HomeProps;
   settings: GlobalProps;
   events: EventProps[];
   inEvidenza: InEvidenzaProps;
+  ricordi: RicordiProps[];
 }
 const Home = (props: HomePageProps) => {
   const { intro, picture, history, promo } = props.data;
@@ -100,6 +108,10 @@ const Home = (props: HomePageProps) => {
             ...continua
           </CustomLink>
         </section>
+
+        <section className="m-4 md:m-8 ">
+          <RidordiList ricordi={props.ricordi} />
+        </section>
       </Layout>
     </>
   );
@@ -107,6 +119,14 @@ const Home = (props: HomePageProps) => {
 
 export async function getStaticProps() {
   const events = getCollection('eventi');
+  const ricordi = getCollection('ricordi').map((ricordo: RicordiProps) => {
+    return {
+      ...ricordo,
+      foto: ricordo.foto.slice(0, 4),
+    };
+  });
+
+  console.log('ricordi', ricordi);
 
   const inEvidenza = getFile('in_evidenza.json');
   const data = getFile('home.json');
@@ -121,6 +141,7 @@ export async function getStaticProps() {
       settings,
       events,
       inEvidenza,
+      ricordi,
     },
   };
 }
