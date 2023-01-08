@@ -159,22 +159,31 @@ collections:
     folder: '_data/ricordi'
     extension: json
     create: true
-    fields: 
+    fields:
       [
-        - { label: 'Titolo', name: 'title', widget: 'string' }
-        - {
-            label: 'Descrizione',
-            name: 'description',
-            widget: 'markdown',
-            required: false,
-          }
-        - { label: 'Data', name: 'date', widget: 'date', required: false }
-        - {
-            label: 'Foto',
-            name: 'foto',          
-            widget: 'list',
-            media_folder: '/public/pictures/{{title}}',
-            public_folder: '/pictures/{{title}}',
-            media_library: { config: { multiple: true } },
-          }
+        { label: 'Titolo', name: 'title', widget: 'string' },
+        {
+          label: 'Descrizione',
+          name: 'description',
+          widget: 'markdown',
+          required: false,
+        },
+        { label: 'Data', name: 'date', widget: 'date', required: false },
+        {
+          label: 'Foto',
+          name: 'foto',
+          widget: 'list',
+          fields:
+            [
+              {
+                label: 'Immagine',
+                name: 'image',
+                widget: 'image',
+                allow_multiple: false,
+                media_folder: '/public/pictures/{{title}}',
+                public_folder: '/pictures/{{title}}',
+                media_library: { config: { multiple: true } },
+              },
+            ],
+        },
       ]
