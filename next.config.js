@@ -6,7 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    unoptimized: false,
+    unoptimized: true,
   },
 
   webpack: (cfg) => {
