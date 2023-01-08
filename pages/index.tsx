@@ -127,8 +127,6 @@ export async function getStaticProps() {
     };
   });
 
-  console.log('ricordi', ricordi);
-
   const inEvidenza = getFile('in_evidenza.json');
   const data = getFile('home.json');
   const settings = getFile('settings.json');
