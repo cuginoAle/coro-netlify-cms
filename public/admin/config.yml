@@ -186,7 +186,7 @@ collections:
                 name: 'image',
                 widget: 'image',
                 allow_multiple: false,
-                media_folder: '/public/pictures/{{title | lower}}',
+                media_folder: '/public/pictures/{{slug}}',
                 public_folder: '/pictures/{{title}}',
                 media_library: { config: { multiple: true } },
               },

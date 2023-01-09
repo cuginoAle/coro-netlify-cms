@@ -16,6 +16,7 @@ interface EventProps {
   description?: string;
   place?: string;
   picture?: string;
+  slug: string;
 }
 
 interface InEvidenzaProps {
@@ -48,6 +49,7 @@ interface RicordiProps {
   description?: string;
   className?: string;
   foto: fotoProps[];
+  slug: string;
 }
 
 interface StoriaProps {

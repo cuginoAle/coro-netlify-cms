@@ -8,7 +8,7 @@ interface RicordoCardProps extends RicordiProps {}
 const RicordoCard = (ricordo: RicordoCardProps) => {
   const cn = `${ricordo.className || ''} ${style.wrapper}`;
   return (
-    <Link href={`/ricordi/${ricordo.title.toLowerCase()}`} className={cn}>
+    <Link href={`/ricordi/${ricordo.slug}`} className={cn}>
       <div className={style.fotoHolder}>
         {ricordo.foto.map((foto) => {
           return (
