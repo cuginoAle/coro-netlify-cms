@@ -33,7 +33,7 @@ const InEvidenza = (props: InEvidenzaPageProps) => {
     <>
       <Head>
         <title>
-          {settings.title} - {headings}{' '}
+          {settings.title} - {headings}
         </title>
       </Head>
 

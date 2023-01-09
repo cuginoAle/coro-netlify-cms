@@ -110,6 +110,7 @@ const Home = (props: HomePageProps) => {
         </section>
 
         <section className="m-4 md:m-8 ">
+          <Heading>Ricordi fotografici</Heading>
           <RidordiList ricordi={props.ricordi} />
         </section>
       </Layout>
@@ -125,8 +126,6 @@ export async function getStaticProps() {
       foto: ricordo.foto.slice(0, 4),
     };
   });
-
-  console.log('ricordi', ricordi);
 
   const inEvidenza = getFile('in_evidenza.json');
   const data = getFile('home.json');
