@@ -104,7 +104,7 @@ const Home = (props: HomePageProps) => {
           >
             {history}
           </ReactMarkdown>
-          <CustomLink href="/" className="self-end">
+          <CustomLink href="/storia" className="self-end">
             ...continua
           </CustomLink>
         </section>
