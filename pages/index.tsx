@@ -6,7 +6,7 @@ import style from './index.module.css';
 import Head from 'next/head';
 import Layout from './layout';
 import CustomLink from 'components/link/link';
-import { getCollection } from 'helpers/getCollection';
+import { getCollection } from 'helpers/collection';
 import { getFile } from 'helpers/getFile';
 
 import { Heading } from 'components/heading';

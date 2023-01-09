@@ -16,6 +16,7 @@ html {
   --accent-50: #ff610050;
   --accent-light: #ffb700;
   --accent-light-50: #ffb70050;
+  scroll-behavior: smooth;
 }
 html,
 body {

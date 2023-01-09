@@ -14,4 +14,10 @@ const getCollection = (dataType: string) => {
   });
 };
 
-export { getCollection };
+const getCollectionEntries = (dataType: string) => {
+  const folder = path.join(process.cwd(), pathPrefix, dataType);
+  const files = fs.readdirSync(folder);
+  return files.map((file: string) => file.replace('.json', ''));
+};
+
+export { getCollection, getCollectionEntries };
