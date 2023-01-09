@@ -4,16 +4,34 @@ import { getFile } from 'helpers/getFile';
 import Head from 'next/head';
 import Layout from 'pages/layout';
 import { GlobalProps, RicordiProps } from 'types';
-import { getCollection } from 'helpers/getCollection';
+import { getCollection, getCollectionEntries } from 'helpers/collection';
 
 import ReactMarkdown from 'react-markdown';
 import style from './style.module.css';
 import { Heading } from 'components/heading';
 import Image from 'next/image';
 import Link from 'next/link';
+import React, { useEffect } from 'react';
 
-const Ricordi = (props: { settings: GlobalProps; ricordo: RicordiProps }) => {
-  const { settings, ricordo } = props;
+const Ricordi = (props: {
+  settings: GlobalProps;
+  ricordo: RicordiProps;
+  altriRicordi: string[];
+}) => {
+  const galleryRef = React.useRef<HTMLDivElement>(null);
+  const { settings, ricordo, altriRicordi } = props;
+
+  useEffect(() => {
+    const gallery = galleryRef.current;
+    if (gallery) {
+      gallery.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
+  }, [ricordo]);
+
   return (
     <>
       <Head>
@@ -24,7 +42,10 @@ const Ricordi = (props: { settings: GlobalProps; ricordo: RicordiProps }) => {
         <section className="flex flex-col m-2 md:m-4">
           <Heading>{ricordo.title}</Heading>
 
-          <div className="flex gap-4 snap-x snap-mandatory w-full overflow-auto">
+          <div
+            className="flex gap-4 snap-x snap-mandatory w-full overflow-auto"
+            ref={galleryRef}
+          >
             {ricordo.foto.map((foto) => {
               return (
                 <Link className={style.link} href={foto.image} key={foto.image}>
@@ -45,6 +66,21 @@ const Ricordi = (props: { settings: GlobalProps; ricordo: RicordiProps }) => {
           <ReactMarkdown className="MD whitespace-pre-wrap m-8 sm:m-12 text-lg">
             {ricordo.description as string}
           </ReactMarkdown>
+
+          <Heading>Altri ricordi</Heading>
+          <div className="flex gap-2">
+            {altriRicordi.map((ricordo) => {
+              return (
+                <Link
+                  href={`/ricordi/${ricordo}`}
+                  key={ricordo}
+                  className="bg-white/20 px-4 py-2"
+                >
+                  <h4>{ricordo}</h4>
+                </Link>
+              );
+            })}
+          </div>
         </section>
       </Layout>
     </>
@@ -66,6 +102,8 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params!.slug as string;
 
+  const altriRicordi = getCollectionEntries('ricordi');
+
   const ricordo = getFile(`ricordi/${slug}.json`);
   const settings = getFile('settings.json');
 
@@ -73,6 +111,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       settings,
       ricordo,
+      altriRicordi,
     },
   };
 };
