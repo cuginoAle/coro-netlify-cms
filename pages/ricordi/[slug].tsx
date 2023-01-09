@@ -9,6 +9,8 @@ import { getCollection } from 'helpers/getCollection';
 import ReactMarkdown from 'react-markdown';
 import style from './style.module.css';
 import { Heading } from 'components/heading';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Ricordi = (props: { settings: GlobalProps; ricordo: RicordiProps }) => {
   const { settings, ricordo } = props;
@@ -28,13 +30,17 @@ const Ricordi = (props: { settings: GlobalProps; ricordo: RicordiProps }) => {
           <div className="flex gap-4 snap-x snap-mandatory w-full overflow-auto">
             {ricordo.foto.map((foto) => {
               return (
-                <img
-                  className={`snap-center ${style.picture}`}
-                  key={foto.image}
-                  src={foto.image}
-                  alt={ricordo.title}
-                  loading="lazy"
-                />
+                <Link className={style.link} href={foto.image} key={foto.image}>
+                  <Image
+                    sizes="(max-width: 1025px) 90vw, 1025px"
+                    className={`snap-center ${style.picture}`}
+                    src={foto.image}
+                    alt={ricordo.title}
+                    width={600}
+                    height={400}
+                    // loading="lazy"
+                  />
+                </Link>
               );
             })}
           </div>
