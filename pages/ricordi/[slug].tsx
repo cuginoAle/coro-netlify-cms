@@ -55,7 +55,7 @@ export const getStaticPaths = async () => {
   const ricordi = await getCollection('ricordi');
   const paths = ricordi.map((ricordo: RicordiProps) => {
     return {
-      params: { slug: ricordo.title },
+      params: { slug: ricordo.slug },
     };
   });
   return {
@@ -65,10 +65,9 @@ export const getStaticPaths = async () => {
 };
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params!.slug as string;
+
   const ricordo = getFile(`ricordi/${slug}.json`);
   const settings = getFile('settings.json');
-
-  console.log('ricordo', ricordo);
 
   return {
     props: {
