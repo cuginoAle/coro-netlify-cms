@@ -68,7 +68,7 @@ const Ricordi = (props: {
           </ReactMarkdown>
 
           <Heading>Altri ricordi</Heading>
-          <div className="flex gap-2 flex-wrap">
+          <div className="flex gap-2 flex-wrap pb-6">
             {altriRicordi.map((ricordo) => {
               return (
                 <Link
