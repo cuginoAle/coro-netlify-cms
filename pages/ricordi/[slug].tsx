@@ -42,7 +42,7 @@ const Ricordi = (props: { settings: GlobalProps; ricordo: RicordiProps }) => {
             })}
           </div>
 
-          <ReactMarkdown className="MD">
+          <ReactMarkdown className="MD whitespace-pre-wrap m-8 sm:m-12 text-lg">
             {ricordo.description as string}
           </ReactMarkdown>
         </section>
