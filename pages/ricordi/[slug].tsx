@@ -24,9 +24,6 @@ const Ricordi = (props: { settings: GlobalProps; ricordo: RicordiProps }) => {
         <section className="flex flex-col m-2 md:m-4">
           <Heading>{ricordo.title}</Heading>
 
-          <ReactMarkdown className="MD">
-            {ricordo.description as string}
-          </ReactMarkdown>
           <div className="flex gap-4 snap-x snap-mandatory w-full overflow-auto">
             {ricordo.foto.map((foto) => {
               return (
@@ -44,6 +41,10 @@ const Ricordi = (props: { settings: GlobalProps; ricordo: RicordiProps }) => {
               );
             })}
           </div>
+
+          <ReactMarkdown className="MD">
+            {ricordo.description as string}
+          </ReactMarkdown>
         </section>
       </Layout>
     </>
