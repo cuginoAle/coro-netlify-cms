@@ -1,13 +1,14 @@
 import { RicordiProps } from 'types';
 import Image from 'next/image';
 import style from './style.module.css';
+import Link from 'next/link';
 
 interface RicordoCardProps extends RicordiProps {}
 
 const RicordoCard = (ricordo: RicordoCardProps) => {
   const cn = `${ricordo.className || ''} ${style.wrapper}`;
   return (
-    <div className={cn}>
+    <Link href={`/ricordi/${ricordo.title.toLowerCase()}`} className={cn}>
       <div className={style.fotoHolder}>
         {ricordo.foto.map((foto) => {
           return (
@@ -28,7 +29,7 @@ const RicordoCard = (ricordo: RicordoCardProps) => {
       <div className={style.copyHolder}>
         <h3 className={style.titolo}>{ricordo.title}</h3>
       </div>
-    </div>
+    </Link>
   );
 };
 
