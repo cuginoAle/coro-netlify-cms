@@ -50,6 +50,10 @@ interface RicordiProps {
   foto: fotoProps[];
 }
 
+interface StoriaProps {
+  storia?: string;
+}
+
 export type {
   HomeProps,
   GlobalProps,
@@ -57,4 +61,5 @@ export type {
   InEvidenzaProps,
   RicordiProps,
   fotoProps,
+  StoriaProps,
 };
