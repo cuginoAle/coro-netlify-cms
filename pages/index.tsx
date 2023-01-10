@@ -11,6 +11,7 @@ import { getFile } from 'helpers/getFile';
 
 import { Heading } from 'components/heading';
 import {
+  ComposizioneProps,
   EventProps,
   GlobalProps,
   HomeProps,
@@ -27,11 +28,11 @@ interface HomePageProps {
   events: EventProps[];
   inEvidenza: InEvidenzaProps;
   ricordi: RicordiProps[];
+  composizione: ComposizioneProps;
 }
 const Home = (props: HomePageProps) => {
-  const { intro, picture, history, promo } = props.data;
-  const settings = props.settings;
-  const inEvidenza = props.inEvidenza;
+  const { settings, inEvidenza, data, composizione } = props;
+  const { intro, picture, history, promo } = data;
 
   return (
     <>
@@ -93,10 +94,20 @@ const Home = (props: HomePageProps) => {
           </ReactMarkdown>
         </section>
 
-        <section
-          className="m-4 md:m-8 text-xl flex flex-col"
-          style={{ '--line-clamp': 10 }}
-        >
+        <section className="m-4 md:m-8  text-xl flex flex-col">
+          <Heading>Composizione corale</Heading>
+          <ReactMarkdown
+            className="MD whitespace-pre-wrap"
+            remarkPlugins={[remarkGfm]}
+          >
+            {composizione.descrizione}
+          </ReactMarkdown>
+          <CustomLink href="/composizione" className="self-end">
+            ...continua
+          </CustomLink>
+        </section>
+
+        <section className="m-4 md:m-8 text-xl flex flex-col">
           <Heading>La storia</Heading>
           <ReactMarkdown
             className="MD whitespace-pre-wrap"
@@ -130,17 +141,23 @@ export async function getStaticProps() {
   const inEvidenza = getFile('in_evidenza.json');
   const data = getFile('home.json');
   const settings = getFile('settings.json');
+  const composizione = getFile('composizione.json');
+  const history = getFile('storia.json');
 
   return {
     props: {
       data: {
         ...data,
-        history: data.history.substr(0, 200) + '...',
+        history: history.storia.substr(0, 320) + '...',
       },
       settings,
       events,
       inEvidenza,
       ricordi,
+      composizione: {
+        ...composizione,
+        descrizione: composizione.descrizione.substr(0, 300) + '...',
+      },
     },
   };
 }
