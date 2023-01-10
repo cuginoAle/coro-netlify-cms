@@ -24,7 +24,7 @@ const Storia = (props: StoriaPageProps) => {
           <Heading>Storia del coro</Heading>
 
           <div className={style.wrapper}>
-            <ReactMarkdown className="MD text-lg whitespace-pre-wrap">
+            <ReactMarkdown className="MD text-lg whitespace-pre-wrap emphasys">
               {data.storia as string}
             </ReactMarkdown>
           </div>

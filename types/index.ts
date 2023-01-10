@@ -56,6 +56,18 @@ interface StoriaProps {
   storia?: string;
 }
 
+const Voci = ['Soprano', 'Contralto', 'Tenore', 'Basso'];
+
+interface CoristaProps {
+  nome: string;
+  cognome: string;
+  voce: keyof typeof Voci;
+}
+interface ComposizioneProps {
+  descrizione: string;
+  coristi: CoristaProps[];
+}
+
 export type {
   HomeProps,
   GlobalProps,
@@ -64,4 +76,8 @@ export type {
   RicordiProps,
   fotoProps,
   StoriaProps,
+  ComposizioneProps,
+  CoristaProps,
 };
+
+export { Voci };

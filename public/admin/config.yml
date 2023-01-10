@@ -38,6 +38,35 @@ collections:
         fields:
           - { label: 'Descrizione', name: 'storia', widget: 'markdown' }
 
+      - label: 'Composizione corale'
+        name: 'composizione'
+        file: '_data/composizione.json'
+        fields:
+          - { label: 'Descrizione', name: 'descrizione', widget: 'markdown' }
+          - {
+              label: 'Coristi',
+              name: 'coristi',
+              widget: 'list',
+              label_singular: 'Corista',
+              fields: [
+                  { label: 'Nome', name: 'nome', widget: 'string' },
+                  { label: 'Cognome', name: 'cognome', widget: 'string' },
+                  # {
+                  #   label: 'Foto',
+                  #   name: 'picture',
+                  #   widget: 'image',
+                  #   allow_multiple: false,
+                  #   required: false,
+                  # },
+                  {
+                    label: 'Voce',
+                    name: 'voce',
+                    widget: 'select',
+                    options: ['Soprano', 'Contralto', 'Tenore', 'Basso'],
+                  },
+                ],
+            }
+
       - label: 'In evidenza'
         name: 'in_evidenza'
         title: 'titolo'
@@ -123,29 +152,6 @@ collections:
                   { label: 'Link', name: 'linkUrl', widget: 'string' },
                 ],
             }
-
-  - label: 'Coristi'
-    name: 'coristi'
-    label_singular: 'Corista'
-    title: 'nome'
-    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
-    folder: '_data/coristi'
-    extension: json
-    create: true
-    fields:
-      - { label: 'Nominativo', name: 'title', widget: 'string' }
-      - {
-          label: 'Foto',
-          name: 'picture',
-          widget: 'image',
-          allow_multiple: false,
-        }
-      - {
-          label: 'Voce',
-          name: 'voce',
-          widget: 'select',
-          options: ['Soprano', 'Contralto', 'Tenore', 'Basso'],
-        }
 
   - label: 'Eventi'
     name: 'eventi'

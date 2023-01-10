@@ -56,7 +56,6 @@ const Ricordi = (props: {
                     alt={ricordo.title}
                     width={600}
                     height={400}
-                    // loading="lazy"
                   />
                 </Link>
               );
