@@ -67,6 +67,35 @@ collections:
                 ],
             }
 
+      - label: 'Contatti'
+        name: 'contatti'
+        file: '_data/contatti.json'
+        fields:
+          - {
+              label: 'Membri',
+              name: 'membri',
+              widget: 'list',
+              label_singular: 'Membro',
+              fields:
+                [
+                  { label: 'Nome', name: 'nome', widget: 'string' },
+                  { label: 'Cognome', name: 'cognome', widget: 'string' },
+                  { label: 'Ruolo', name: 'ruolo', widget: 'string' },
+                  {
+                    label: 'Tel',
+                    name: 'tel',
+                    widget: 'string',
+                    required: false,
+                  },
+                  {
+                    label: 'Email',
+                    name: 'email',
+                    widget: 'string',
+                    required: false,
+                  },
+                ],
+            }
+
       - label: 'In evidenza'
         name: 'in_evidenza'
         title: 'titolo'

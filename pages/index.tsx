@@ -12,6 +12,7 @@ import { getFile } from 'helpers/getFile';
 import { Heading } from 'components/heading';
 import {
   ComposizioneProps,
+  ContattoProps,
   EventProps,
   GlobalProps,
   HomeProps,
@@ -21,6 +22,7 @@ import {
 import { EventsList } from 'components/eventsList/eventsList';
 import Link from 'next/link';
 import RidordiList from 'components/ridordiList/ridordiList';
+import { Contatti, ContattiPageProps } from 'components/contatti/contatti';
 
 interface HomePageProps {
   data: HomeProps;
@@ -29,9 +31,10 @@ interface HomePageProps {
   inEvidenza: InEvidenzaProps;
   ricordi: RicordiProps[];
   composizione: ComposizioneProps;
+  contatti: ContattiPageProps;
 }
 const Home = (props: HomePageProps) => {
-  const { settings, inEvidenza, data, composizione } = props;
+  const { settings, inEvidenza, data, composizione, contatti } = props;
   const { intro, picture, history, promo } = data;
 
   return (
@@ -124,6 +127,11 @@ const Home = (props: HomePageProps) => {
           <Heading>Ricordi fotografici</Heading>
           <RidordiList ricordi={props.ricordi} />
         </section>
+
+        <section className="m-4 md:m-8 text-xl flex flex-col">
+          <Heading>Contatti</Heading>
+          <Contatti {...contatti} />
+        </section>
       </Layout>
     </>
   );
@@ -143,6 +151,7 @@ export async function getStaticProps() {
   const settings = getFile('settings.json');
   const composizione = getFile('composizione.json');
   const history = getFile('storia.json');
+  const contatti = getFile('contatti.json');
 
   return {
     props: {
@@ -154,6 +163,7 @@ export async function getStaticProps() {
       events,
       inEvidenza,
       ricordi,
+      contatti,
       composizione: {
         ...composizione,
         descrizione: composizione.descrizione.substr(0, 300) + '...',
