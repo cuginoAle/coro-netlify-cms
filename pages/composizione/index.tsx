@@ -1,4 +1,5 @@
 import { Heading } from 'components/heading';
+import CustomLink from 'components/link/link';
 import { getFile } from 'helpers/getFile';
 import Head from 'next/head';
 import Layout from 'pages/layout';
@@ -50,6 +51,9 @@ const Storia = (props: ComposizionePageProps) => {
               {data.descrizione as string}
             </ReactMarkdown>
           </div>
+          <CustomLink href="/" className="text-xl font-light my-8 self-start">
+            &lt; indietro
+          </CustomLink>
         </section>
       </Layout>
     </>
