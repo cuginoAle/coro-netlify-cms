@@ -63,9 +63,14 @@ interface CoristaProps {
   cognome: string;
   voce: keyof typeof Voci;
 }
+interface cinquePerMilleProps {
+  anno: number;
+  fileUrl: string;
+}
 interface ComposizioneProps {
   descrizione: string;
   coristi: CoristaProps[];
+  cinquepermille: cinquePerMilleProps[];
 }
 
 interface ContattoProps {
@@ -87,6 +92,7 @@ export type {
   ComposizioneProps,
   CoristaProps,
   ContattoProps,
+  cinquePerMilleProps,
 };
 
 export { Voci };
