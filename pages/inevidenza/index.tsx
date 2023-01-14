@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { DateBanner } from 'components/dateBanner/dateBanner';
 import Link from 'next/link';
+import CustomLink from 'components/link/link';
 
 interface InEvidenzaPageProps {
   settings: GlobalProps;
@@ -38,112 +39,121 @@ const InEvidenza = (props: InEvidenzaPageProps) => {
       </Head>
 
       <Layout {...settings}>
-        <section className="p-4 text-center flex gap-2 sm:gap-4 m-4 md:m-8 items-start">
-          {inEvidenza.date && (
-            <DateBanner
-              className="hidden md:block"
-              date={new Date(inEvidenza.date)}
-            />
-          )}
+        <section className="flex flex-col p-4 m-4 md:m-8">
+          <section className=" text-center flex gap-2 sm:gap-4 items-start">
+            {inEvidenza.date && (
+              <DateBanner
+                className="hidden md:block"
+                date={new Date(inEvidenza.date)}
+              />
+            )}
 
-          <div className="flex flex-col items-center grow gap-8">
-            <ReactMarkdown className="MD" remarkPlugins={[remarkGfm]}>
-              {headings}
-            </ReactMarkdown>
-            <hr className="opacity-50 w-1/2 m-auto" />
-            <div className="max-w-lg flex flex-col items-center gap-16">
-              {description && (
-                <ReactMarkdown
-                  className="MD text-xl whitespace-pre-wrap"
-                  remarkPlugins={[remarkGfm]}
-                >
-                  {description}
-                </ReactMarkdown>
+            <div className="flex flex-col items-center grow gap-8">
+              <ReactMarkdown className="MD" remarkPlugins={[remarkGfm]}>
+                {headings}
+              </ReactMarkdown>
+              <hr className="opacity-50 w-1/2 m-auto" />
+              <div className="max-w-lg flex flex-col items-center gap-16">
+                {description && (
+                  <ReactMarkdown
+                    className="MD text-xl whitespace-pre-wrap"
+                    remarkPlugins={[remarkGfm]}
+                  >
+                    {description}
+                  </ReactMarkdown>
+                )}
+
+                {picture && (
+                  <div className="flex justify-center">
+                    <img
+                      src={picture}
+                      alt={headings}
+                      className={style.picture}
+                    />
+                  </div>
+                )}
+              </div>
+              <hr className="opacity-50 w-1/2 m-auto" />
+              {allegati && (
+                <>
+                  <h3>Allegati</h3>
+                  <ul className="flex gap-8 flex-wrap max-w-lg">
+                    {allegati.map((allegato) => {
+                      const fileType =
+                        allegato.fileUrl?.split('.').pop() || 'doc';
+
+                      return (
+                        <li key={allegato.fileUrl} className="w-full relative">
+                          <span className="absolute -top-3 -left-3 w-5 h-5">
+                            <img
+                              src={`/assets/${allegato.lang}.svg`}
+                              alt={allegato.lang}
+                            />
+                          </span>
+                          <Link
+                            href={allegato.fileUrl}
+                            passHref
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex gap-2 items-center"
+                          >
+                            <div className="p-2 bg-slate-300 rounded-sm">
+                              <img
+                                src={`/assets/${fileTypes[fileType]}`}
+                                alt={allegato.title}
+                                width={30}
+                                height={30}
+                              />
+                            </div>
+                            <span>{allegato.title}</span>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <hr className="opacity-50 w-1/2 m-auto" />
+                </>
               )}
-
-              {picture && (
-                <div className="flex justify-center">
-                  <img src={picture} alt={headings} className={style.picture} />
-                </div>
+              {links && (
+                <>
+                  <h3>Link esterni</h3>
+                  <ul className="flex gap-8 flex-wrap max-w-lg">
+                    {links.map((link) => {
+                      return (
+                        <li key={link.linkUrl} className="w-full relative">
+                          <span className="absolute -top-3 -left-3 w-5 h-5">
+                            <img
+                              src={`/assets/${link.lang}.svg`}
+                              alt={link.lang}
+                            />
+                          </span>
+                          <Link
+                            href={link.linkUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex gap-2 items-center"
+                          >
+                            <div className="p-2 bg-slate-300 rounded-sm">
+                              <img
+                                src={`/assets/link.svg`}
+                                alt={link.title}
+                                width={30}
+                                height={30}
+                              />
+                            </div>
+                            <span>{link.title}</span>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </>
               )}
             </div>
-            <hr className="opacity-50 w-1/2 m-auto" />
-            {allegati && (
-              <>
-                <h3>Allegati</h3>
-                <ul className="flex gap-8 flex-wrap max-w-lg">
-                  {allegati.map((allegato) => {
-                    const fileType =
-                      allegato.fileUrl?.split('.').pop() || 'doc';
-
-                    return (
-                      <li key={allegato.fileUrl} className="w-full relative">
-                        <span className="absolute -top-3 -left-3 w-5 h-5">
-                          <img
-                            src={`/assets/${allegato.lang}.svg`}
-                            alt={allegato.lang}
-                          />
-                        </span>
-                        <Link
-                          href={allegato.fileUrl}
-                          passHref
-                          target="_blank"
-                          rel="noreferrer"
-                          className="flex gap-2 items-center"
-                        >
-                          <div className="p-2 bg-slate-300 rounded-sm">
-                            <img
-                              src={`/assets/${fileTypes[fileType]}`}
-                              alt={allegato.title}
-                              width={30}
-                              height={30}
-                            />
-                          </div>
-                          <span>{allegato.title}</span>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <hr className="opacity-50 w-1/2 m-auto" />
-              </>
-            )}
-            {links && (
-              <>
-                <h3>Link esterni</h3>
-                <ul className="flex gap-8 flex-wrap max-w-lg">
-                  {links.map((link) => {
-                    return (
-                      <li key={link.linkUrl} className="w-full relative">
-                        <span className="absolute -top-3 -left-3 w-5 h-5">
-                          <img
-                            src={`/assets/${link.lang}.svg`}
-                            alt={link.lang}
-                          />
-                        </span>
-                        <Link
-                          href={link.linkUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="flex gap-2 items-center"
-                        >
-                          <div className="p-2 bg-slate-300 rounded-sm">
-                            <img
-                              src={`/assets/link.svg`}
-                              alt={link.title}
-                              width={30}
-                              height={30}
-                            />
-                          </div>
-                          <span>{link.title}</span>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </>
-            )}
-          </div>
+          </section>
+          <CustomLink href="/" className="text-xl font-light my-8 self-start">
+            &lt; indietro
+          </CustomLink>
         </section>
       </Layout>
     </>

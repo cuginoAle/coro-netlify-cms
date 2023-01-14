@@ -12,6 +12,7 @@ import { Heading } from 'components/heading';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
+import CustomLink from 'components/link/link';
 
 const Ricordi = (props: {
   settings: GlobalProps;
@@ -80,6 +81,9 @@ const Ricordi = (props: {
               );
             })}
           </div>
+          <CustomLink href="/" className="text-xl font-light my-8 self-start">
+            &lt; indietro
+          </CustomLink>
         </section>
       </Layout>
     </>
