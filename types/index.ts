@@ -68,6 +68,14 @@ interface ComposizioneProps {
   coristi: CoristaProps[];
 }
 
+interface ContattoProps {
+  nome: string;
+  cognome: string;
+  ruolo: string;
+  tel: string;
+  email: string;
+}
+
 export type {
   HomeProps,
   GlobalProps,
@@ -78,6 +86,7 @@ export type {
   StoriaProps,
   ComposizioneProps,
   CoristaProps,
+  ContattoProps,
 };
 
 export { Voci };
