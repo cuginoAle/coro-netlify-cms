@@ -66,6 +66,23 @@ collections:
                   },
                 ],
             }
+          - {
+              label: 'Cinque per mille',
+              name: 'cinquepermille',
+              widget: 'list',
+              label_singular: 'Anno',
+              fields:
+                [
+                  { label: 'Anno', name: 'anno', widget: 'number' },
+                  {
+                    label: 'File',
+                    name: 'fileUrl',
+                    widget: 'file',
+                    media_folder: '/public/cinque_per_mille',
+                    public_folder: '/cinque_per_mille',
+                  },
+                ],
+            }
 
       - label: 'Contatti'
         name: 'contatti'
