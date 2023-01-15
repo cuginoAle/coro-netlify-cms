@@ -1,5 +1,5 @@
 .mainWrapper {
-  @apply flex items-center flex-col sm:m-5relative;
+  @apply flex items-center flex-col sm:m-5 relative;
 }
 
 .background {
