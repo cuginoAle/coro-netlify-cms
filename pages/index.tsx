@@ -9,7 +9,7 @@ import CustomLink from 'components/link/link';
 import { getCollection } from 'helpers/collection';
 import { getFile } from 'helpers/getFile';
 
-import { Heading } from 'components/heading';
+import { Heading } from 'components/heading/heading';
 import {
   ComposizioneProps,
   ContattoProps,
@@ -129,8 +129,7 @@ const Home = (props: HomePageProps) => {
         </section>
 
         <section className="m-4 md:m-8 text-xl flex flex-col">
-          <Heading>Contatti</Heading>
-          <Contatti {...contatti} />
+          <Heading href={'/contatti'}>Contatti</Heading>
         </section>
       </Layout>
     </>

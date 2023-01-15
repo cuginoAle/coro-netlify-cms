@@ -1,4 +1,4 @@
-import { Heading } from 'components/heading';
+import { Heading } from 'components/heading/heading';
 import CustomLink from 'components/link/link';
 import { getFile } from 'helpers/getFile';
 import Head from 'next/head';

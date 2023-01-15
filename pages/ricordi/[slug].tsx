@@ -8,7 +8,7 @@ import { getCollection, getCollectionEntries } from 'helpers/collection';
 
 import ReactMarkdown from 'react-markdown';
 import style from './style.module.css';
-import { Heading } from 'components/heading';
+import { Heading } from 'components/heading/heading';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect } from 'react';

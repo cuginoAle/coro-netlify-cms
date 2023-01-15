@@ -1,5 +1,5 @@
 import { EventCard, EventCardProps } from 'components/eventCard/eventCard';
-import { Heading } from 'components/heading';
+import { Heading } from 'components/heading/heading';
 import style from './style.module.css';
 
 interface EventsListProps {
