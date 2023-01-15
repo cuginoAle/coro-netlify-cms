@@ -6,13 +6,22 @@ import style from './index.module.css';
 import Head from 'next/head';
 import Layout from './layout';
 import CustomLink from 'components/link/link';
-import { getCollection } from 'helpers/getCollection';
+import { getCollection } from 'helpers/collection';
 import { getFile } from 'helpers/getFile';
 
-import { Heading } from 'components/heading';
-import { EventProps, GlobalProps, HomeProps, InEvidenzaProps } from 'types';
+import { Heading } from 'components/heading/heading';
+import {
+  ComposizioneProps,
+  EventProps,
+  GlobalProps,
+  HomeProps,
+  InEvidenzaProps,
+  RicordiProps,
+} from 'types';
 import { EventsList } from 'components/eventsList/eventsList';
 import Link from 'next/link';
+import RidordiList from 'components/ridordiList/ridordiList';
+import { ContattiProps } from 'components/contatti/contatti';
 
 import { createClient } from 'next-sanity';
 
@@ -21,11 +30,13 @@ interface HomePageProps {
   settings: GlobalProps;
   events: EventProps[];
   inEvidenza: InEvidenzaProps;
+  ricordi: RicordiProps[];
+  composizione: ComposizioneProps;
+  contatti: ContattiProps;
 }
 const Home = (props: HomePageProps) => {
-  const { intro, picture, history, promo } = props.data;
-  const settings = props.settings;
-  const inEvidenza = props.inEvidenza;
+  const { settings, inEvidenza, data, composizione, contatti } = props;
+  const { intro, picture, history, promo } = data;
 
   return (
     <>
@@ -87,10 +98,20 @@ const Home = (props: HomePageProps) => {
           </ReactMarkdown>
         </section>
 
-        <section
-          className="m-4 md:m-8 text-xl flex flex-col"
-          style={{ '--line-clamp': 10 }}
-        >
+        <section className="m-4 md:m-8  text-xl flex flex-col">
+          <Heading>Composizione corale</Heading>
+          <ReactMarkdown
+            className="MD whitespace-pre-wrap"
+            remarkPlugins={[remarkGfm]}
+          >
+            {composizione.descrizione}
+          </ReactMarkdown>
+          <CustomLink href="/composizione" className="self-end">
+            ...continua
+          </CustomLink>
+        </section>
+
+        <section className="m-4 md:m-8 text-xl flex flex-col">
           <Heading>La storia</Heading>
           <ReactMarkdown
             className="MD whitespace-pre-wrap"
@@ -98,9 +119,18 @@ const Home = (props: HomePageProps) => {
           >
             {history}
           </ReactMarkdown>
-          <CustomLink href="/" className="self-end">
+          <CustomLink href="/storia" className="self-end">
             ...continua
           </CustomLink>
+        </section>
+
+        <section className="m-4 md:m-8 ">
+          <Heading>Ricordi fotografici</Heading>
+          <RidordiList ricordi={props.ricordi} />
+        </section>
+
+        <section className="m-4 md:m-8 text-xl flex flex-col">
+          <Heading href={'/contatti'}>Contatti</Heading>
         </section>
       </Layout>
     </>
@@ -119,20 +149,35 @@ export async function getStaticProps() {
   console.log('sanity', sanity);
 
   const events = getCollection('eventi');
+  const ricordi = getCollection('ricordi').map((ricordo: RicordiProps) => {
+    return {
+      ...ricordo,
+      foto: ricordo.foto.slice(0, 4),
+    };
+  });
 
   const inEvidenza = getFile('in_evidenza.json');
   const data = getFile('home.json');
   const settings = getFile('settings.json');
+  const composizione = getFile('composizione.json');
+  const history = getFile('storia.json');
+  const contatti = getFile('contatti.json');
 
   return {
     props: {
       data: {
         ...data,
-        history: data.history.substr(0, 200) + '...',
+        history: history.storia.substr(0, 320) + '...',
       },
       settings,
       events,
       inEvidenza,
+      ricordi,
+      contatti,
+      composizione: {
+        ...composizione,
+        descrizione: composizione.descrizione.substr(0, 300) + '...',
+      },
     },
   };
 }

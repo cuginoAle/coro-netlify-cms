@@ -1,5 +1,5 @@
 @layer my-custom-styles {
   .link {
-    @apply text-accent-light font-semibold px-4 py-2 rounded-sm;
+    @apply text-accent-light font-semibold px-4 py-2 rounded-sm border bg-black/30 border-white/30;
   }
 }

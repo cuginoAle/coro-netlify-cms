@@ -1,0 +1,50 @@
+{
+  "membri": [
+    {
+      "nome": "Fulvio",
+      "cognome": "Venditti",
+      "ruolo": "Direttore artistico",
+      "email": "bemolle@libero.it"
+    },
+    {
+      "nome": "Antonella Loredana",
+      "cognome": "Regoli",
+      "ruolo": "Presidente",
+      "email": "antonella.regoli@alice.it"
+    },
+    {
+      "nome": "Carlo",
+      "cognome": "Del Foco",
+      "ruolo": "Delegato ACLI\t"
+    },
+    {
+      "nome": "Carlo",
+      "cognome": "Marinelli\t",
+      "ruolo": "Segretario"
+    },
+    {
+      "nome": "Antonio",
+      "cognome": "Mariani",
+      "ruolo": "Economo"
+    },
+    {
+      "nome": "Marco",
+      "cognome": "Miele",
+      "ruolo": "Economo"
+    }
+  ],
+  "cinquePerMille": [
+    {
+      "fileUrl": "/cinque_per_mille/5_per_1000_2019.pdf",
+      "anno": 2017
+    },
+    {
+      "anno": 2018,
+      "fileUrl": "/cinque_per_mille/relazione5permille.zip"
+    },
+    {
+      "anno": 2020,
+      "fileUrl": "/cinque_per_mille/5_per_1000_2020.pdf"
+    }
+  ]
+}
