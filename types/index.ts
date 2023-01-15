@@ -16,6 +16,7 @@ interface EventProps {
   description?: string;
   place?: string;
   picture?: string;
+  slug: string;
 }
 
 interface InEvidenzaProps {
@@ -37,4 +38,60 @@ interface InEvidenzaProps {
   }[];
 }
 
-export type { HomeProps, GlobalProps, EventProps, InEvidenzaProps };
+interface fotoProps {
+  title: string;
+  date: string;
+  image: string;
+}
+interface RicordiProps {
+  title: string;
+  date: string;
+  description?: string;
+  className?: string;
+  foto: fotoProps[];
+  slug: string;
+}
+
+interface StoriaProps {
+  storia?: string;
+}
+
+const Voci = ['Soprano', 'Contralto', 'Tenore', 'Basso'];
+
+interface CoristaProps {
+  nome: string;
+  cognome: string;
+  voce: keyof typeof Voci;
+}
+interface cinquePerMilleProps {
+  anno: number;
+  fileUrl: string;
+}
+interface ComposizioneProps {
+  descrizione: string;
+  coristi: CoristaProps[];
+}
+
+interface ContattoProps {
+  nome: string;
+  cognome: string;
+  ruolo: string;
+  tel: string;
+  email: string;
+}
+
+export type {
+  HomeProps,
+  GlobalProps,
+  EventProps,
+  InEvidenzaProps,
+  RicordiProps,
+  fotoProps,
+  StoriaProps,
+  ComposizioneProps,
+  CoristaProps,
+  ContattoProps,
+  cinquePerMilleProps,
+};
+
+export { Voci };

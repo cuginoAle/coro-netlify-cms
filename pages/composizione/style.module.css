@@ -1,0 +1,13 @@
+.wrapper {
+  @apply flex gap-1 mb-16 flex-wrap;
+}
+
+.voce {
+  @apply flex flex-col flex-nowrap shrink-0 bg-white/10 p-8 w-full;
+  @screen sm {
+    width: calc(50% - 0.25rem);
+  }
+}
+.corista {
+  @apply flex gap-2 text-lg;
+}

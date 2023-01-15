@@ -1,0 +1,41 @@
+@layer my-custom-styles {
+  .wrapper {
+    @apply flex flex-col items-center gap-4 bg-black/30;
+  }
+
+  .fotoHolder {
+    height: 200px;
+    width: 100%;
+    @apply flex items-center justify-center relative;
+  }
+
+  .foto {
+    border: 5px solid white;
+    @apply shadow-md rounded absolute origin-center;
+
+    &:nth-child(1) {
+      transform: translate(-15%, 0%) rotate(-10deg);
+    }
+
+    &:nth-child(2) {
+      transform: translate(-7%, 0%) rotate(-5deg);
+    }
+
+    &:nth-child(3) {
+      transform: translate(7%, 0%) rotate(5deg);
+    }
+
+    &:nth-child(4) {
+      transform: translate(15%, 0%) rotate(10deg);
+    }
+  }
+
+  .titolo {
+    @apply text-xl text-gray-600 pl-2;
+    border-left: 10px solid var(--accent);
+  }
+
+  .copyHolder {
+    @apply bg-white w-full p-2;
+  }
+}

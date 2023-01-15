@@ -32,6 +32,87 @@ collections:
             }
           - { label: 'Promo', name: 'promo', widget: 'markdown' }
 
+      - label: 'Storia del coro'
+        name: 'storia'
+        file: '_data/storia.json'
+        fields:
+          - { label: 'Descrizione', name: 'storia', widget: 'markdown' }
+
+      - label: 'Composizione corale'
+        name: 'composizione'
+        file: '_data/composizione.json'
+        fields:
+          - { label: 'Descrizione', name: 'descrizione', widget: 'markdown' }
+          - {
+              label: 'Coristi',
+              name: 'coristi',
+              widget: 'list',
+              label_singular: 'Corista',
+              fields: [
+                  { label: 'Nome', name: 'nome', widget: 'string' },
+                  { label: 'Cognome', name: 'cognome', widget: 'string' },
+                  # {
+                  #   label: 'Foto',
+                  #   name: 'picture',
+                  #   widget: 'image',
+                  #   allow_multiple: false,
+                  #   required: false,
+                  # },
+                  {
+                    label: 'Voce',
+                    name: 'voce',
+                    widget: 'select',
+                    options: ['Soprano', 'Contralto', 'Tenore', 'Basso'],
+                  },
+                ],
+            }
+
+      - label: 'Contatti'
+        name: 'contatti'
+        file: '_data/contatti.json'
+        fields:
+          - {
+              label: 'Membri',
+              name: 'membri',
+              widget: 'list',
+              label_singular: 'Membro',
+              fields:
+                [
+                  { label: 'Nome', name: 'nome', widget: 'string' },
+                  { label: 'Cognome', name: 'cognome', widget: 'string' },
+                  { label: 'Ruolo', name: 'ruolo', widget: 'string' },
+                  {
+                    label: 'Tel',
+                    name: 'tel',
+                    widget: 'string',
+                    required: false,
+                  },
+                  {
+                    label: 'Email',
+                    name: 'email',
+                    widget: 'string',
+                    required: false,
+                  },
+                ],
+            }
+          - {
+              label: 'Cinque per mille',
+              name: 'cinquePerMille',
+              widget: 'list',
+              label_singular: 'Anno',
+              fields:
+                [
+                  { label: 'Anno', name: 'anno', widget: 'number' },
+                  {
+                    label: 'File',
+                    name: 'fileUrl',
+                    widget: 'file',
+                    media_folder: '/public/cinque_per_mille',
+                    public_folder: '/cinque_per_mille',
+                  },
+                ],
+            }
+
       - label: 'In evidenza'
         name: 'in_evidenza'
         title: 'titolo'
@@ -118,29 +199,6 @@ collections:
                 ],
             }
 
-  - label: 'Coristi'
-    name: 'coristi'
-    label_singular: 'Corista'
-    title: 'nome'
-    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
-    folder: '_data/coristi'
-    extension: json
-    create: true
-    fields:
-      - { label: 'Nominativo', name: 'title', widget: 'string' }
-      - {
-          label: 'Foto',
-          name: 'picture',
-          widget: 'image',
-          allow_multiple: false,
-        }
-      - {
-          label: 'Voce',
-          name: 'voce',
-          widget: 'select',
-          options: ['Soprano', 'Contralto', 'Tenore', 'Basso'],
-        }
-
   - label: 'Eventi'
     name: 'eventi'
     label_singular: 'Evento'
@@ -160,20 +218,30 @@ collections:
     extension: json
     create: true
     fields:
-      - { label: 'Titolo', name: 'title', widget: 'string' }
-      - {
+      [
+        { label: 'Titolo', name: 'title', widget: 'string' },
+        {
           label: 'Descrizione',
           name: 'description',
           widget: 'markdown',
           required: false,
-        }
-      - { label: 'Data', name: 'date', widget: 'date', required: false }
-      - {
+        },
+        { label: 'Data', name: 'date', widget: 'date', required: false },
+        {
           label: 'Foto',
           name: 'foto',
-          widget: 'image',
-          # allow_multiple: true,
-          media_folder: '/public/pictures',
-          public_folder: '/pictures',
-          media_library: { config: { multiple: true } },
-        }
+          widget: 'list',
+          fields:
+            [
+              {
+                label: 'Immagine',
+                name: 'image',
+                widget: 'image',
+                allow_multiple: false,
+                media_folder: '/public/pictures/{{slug}}',
+                public_folder: '/pictures/{{title}}',
+                media_library: { config: { multiple: true } },
+              },
+            ],
+        },
+      ]
