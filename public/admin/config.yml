@@ -3,6 +3,8 @@ backend:
   name: git-gateway
   # name: test-repo
   branch: master
+  base_url: 'https://coro-cms.vercel.app/' # our site's base URL
+  auth_endpoint: 'api/auth'
 publish_mode: editorial_workflow
 media_folder: 'public/images'
 public_folder: '/images'
