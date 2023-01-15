@@ -12,7 +12,6 @@ import { getFile } from 'helpers/getFile';
 import { Heading } from 'components/heading/heading';
 import {
   ComposizioneProps,
-  ContattoProps,
   EventProps,
   GlobalProps,
   HomeProps,
@@ -22,7 +21,7 @@ import {
 import { EventsList } from 'components/eventsList/eventsList';
 import Link from 'next/link';
 import RidordiList from 'components/ridordiList/ridordiList';
-import { Contatti, ContattiPageProps } from 'components/contatti/contatti';
+import { ContattiProps } from 'components/contatti/contatti';
 
 interface HomePageProps {
   data: HomeProps;
@@ -31,7 +30,7 @@ interface HomePageProps {
   inEvidenza: InEvidenzaProps;
   ricordi: RicordiProps[];
   composizione: ComposizioneProps;
-  contatti: ContattiPageProps;
+  contatti: ContattiProps;
 }
 const Home = (props: HomePageProps) => {
   const { settings, inEvidenza, data, composizione, contatti } = props;
