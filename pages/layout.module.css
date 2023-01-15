@@ -3,7 +3,7 @@
 }
 
 .background {
-  @apply fixed min-w-full min-h-full -z-10 left-0 top-0 pb-8;
+  @apply fixed min-w-full min-h-full -z-10 left-0 top-0;
   background-image: url(/images/musical_notes_2.jpg);
   background-repeat: no-repeat;
   background-position: center;
@@ -17,6 +17,7 @@
   width: 100%;
   min-height: 100vh;
   color: aliceblue;
+  padding-bottom: 32px;
 }
 
 .header {
