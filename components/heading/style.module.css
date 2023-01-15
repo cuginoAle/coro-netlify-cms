@@ -1,0 +1,16 @@
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0.4em;
+    width: 0.2em;
+    height: 0.2em;
+    background-color: var(--accent);
+    box-shadow: -0.2em -0.2em 0 0 var(--accent), -0.2em 0.2em 0 0 var(--accent);
+  }
+}

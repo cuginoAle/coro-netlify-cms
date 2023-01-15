@@ -1,14 +1,14 @@
 import { ContattoProps } from 'types';
 
-interface ContattiPageProps {
+interface ContattiProps {
   membri: ContattoProps[];
 }
 
-const Contatti = (props: ContattiPageProps) => {
+const Contatti = (props: ContattiProps) => {
   const { membri } = props;
 
   return (
-    <div className="overflow-auto w-full">
+    <div className="overflow-auto w-full text-xl">
       <table className="table-auto">
         <tbody>
           {membri.map((membro) => (

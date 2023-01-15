@@ -70,7 +70,6 @@ interface cinquePerMilleProps {
 interface ComposizioneProps {
   descrizione: string;
   coristi: CoristaProps[];
-  cinquepermille: cinquePerMilleProps[];
 }
 
 interface ContattoProps {

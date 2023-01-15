@@ -46,19 +46,5 @@
       "cognome": "Del Foco",
       "voce": "Tenore"
     }
-  ],
-  "cinquepermille": [
-    {
-      "fileUrl": "/cinque_per_mille/5_per_1000_2019.pdf",
-      "anno": 2017
-    },
-    {
-      "anno": 2018,
-      "fileUrl": "/cinque_per_mille/relazione5permille.zip"
-    },
-    {
-      "anno": 2020,
-      "fileUrl": "/cinque_per_mille/5_per_1000_2020.pdf"
-    }
   ]
 }
