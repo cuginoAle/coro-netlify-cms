@@ -1,9 +1,9 @@
 .mainWrapper {
-  @apply flex items-center flex-col sm:m-5 pb-8 relative;
+  @apply flex items-center flex-col sm:m-5relative;
 }
 
 .background {
-  @apply fixed min-w-full min-h-full -z-10 left-0 top-0;
+  @apply fixed min-w-full min-h-full -z-10 left-0 top-0 pb-8;
   background-image: url(/images/musical_notes_2.jpg);
   background-repeat: no-repeat;
   background-position: center;
