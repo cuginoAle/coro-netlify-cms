@@ -30,4 +30,4 @@ const Contatti = (props: ContattiProps) => {
 };
 
 export { Contatti };
-export type { ContattiPageProps };
+export type { ContattiProps };
