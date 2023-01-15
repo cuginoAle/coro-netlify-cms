@@ -65,7 +65,7 @@ collections:
                     options: ['Soprano', 'Contralto', 'Tenore', 'Basso'],
                   },
                 ],
-            }          
+            }
 
       - label: 'Contatti'
         name: 'contatti'
@@ -95,7 +95,7 @@ collections:
                   },
                 ],
             }
-            - {
+          - {
               label: 'Cinque per mille',
               name: 'cinquePerMille',
               widget: 'list',
