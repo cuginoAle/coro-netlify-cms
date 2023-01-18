@@ -16,9 +16,9 @@ const RicordoCard = (ricordo: RicordoCardProps) => {
               key={foto.image}
               src={foto.image}
               alt={ricordo.title}
-              sizes="(max-width: 768px) 100vw,
+              sizes="(max-width: 768px) 90vw,
               (max-width: 1200px) 50vw,
-              33vw"
+              200px"
               width="200"
               height="200"
               className={style.foto}
