@@ -2,7 +2,7 @@
   flex-shrink: 0;
 }
 .picture {
-  width: 80vw;
-  max-width: 1025px;
-  object-fit: contain;
+  width: 500px;
+  height: auto;
+  max-width: 90vw;
 }

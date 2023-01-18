@@ -10,8 +10,19 @@
   }
 
   .foto {
-    border: 5px solid white;
-    @apply shadow-md rounded absolute origin-center;
+    @apply origin-center absolute;
+    width: 200px;
+    height: 128px;
+
+    img {
+      border: 5px solid white;
+      @apply shadow-md rounded;
+      display: block;
+      max-width: 100%;
+      width: auto;
+      max-height: 100%;
+      margin: auto;
+    }
 
     &:nth-child(1) {
       transform: translate(-15%, 0%) rotate(-10deg);
