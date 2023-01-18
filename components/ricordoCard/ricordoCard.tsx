@@ -12,17 +12,17 @@ const RicordoCard = (ricordo: RicordoCardProps) => {
       <div className={style.fotoHolder}>
         {ricordo.foto.map((foto) => {
           return (
-            <Image
-              key={foto.image}
-              src={foto.image}
-              alt={ricordo.title}
-              sizes="(max-width: 768px) 90vw,
+            <div key={foto.image} className={style.foto}>
+              <Image
+                src={foto.image}
+                alt={ricordo.title}
+                sizes="(max-width: 768px) 90vw,
               (max-width: 1200px) 50vw,
               200px"
-              width="200"
-              height="200"
-              className={style.foto}
-            />
+                width="200"
+                height="200"
+              />
+            </div>
           );
         })}
       </div>

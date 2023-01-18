@@ -55,15 +55,15 @@ const Ricordi = (props: {
                     className={`snap-center ${style.picture}`}
                     src={foto.image}
                     alt={ricordo.title}
-                    width={600}
-                    height={400}
+                    width={900}
+                    height={600}
                   />
                 </Link>
               );
             })}
           </div>
 
-          <ReactMarkdown className="MD whitespace-pre-wrap m-8 sm:m-12 text-lg">
+          <ReactMarkdown className="MD whitespace-pre-wrap my-8 sm:my-12 text-lg">
             {ricordo.description as string}
           </ReactMarkdown>
 
