@@ -13,6 +13,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import CustomLink from 'components/link/link';
+import Script from 'next/script';
 
 const Ricordi = (props: {
   settings: GlobalProps;
@@ -35,6 +36,19 @@ const Ricordi = (props: {
 
   return (
     <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-XG9P3JS5XJ"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-XG9P3JS5XJ');
+        `}
+      </Script>
       <Head>
         <title>{settings.title} - Ricordi fotografici</title>
       </Head>

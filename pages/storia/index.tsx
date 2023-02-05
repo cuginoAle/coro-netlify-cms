@@ -2,6 +2,7 @@ import { Heading } from 'components/heading/heading';
 import CustomLink from 'components/link/link';
 import { getFile } from 'helpers/getFile';
 import Head from 'next/head';
+import Script from 'next/script';
 import Layout from 'pages/layout';
 import ReactMarkdown from 'react-markdown';
 import { GlobalProps, StoriaProps } from 'types';
@@ -16,6 +17,19 @@ const Storia = (props: StoriaPageProps) => {
   const { settings, data } = props;
   return (
     <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-XG9P3JS5XJ"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-XG9P3JS5XJ');
+        `}
+      </Script>
       <Head>
         <title>{settings.title} - Storia del coro</title>
       </Head>

@@ -18,6 +18,7 @@ import {
   InEvidenzaProps,
   RicordiProps,
 } from 'types';
+import Script from 'next/script';
 import { EventsList } from 'components/eventsList/eventsList';
 import Link from 'next/link';
 import RidordiList from 'components/ridordiList/ridordiList';
@@ -38,6 +39,19 @@ const Home = (props: HomePageProps) => {
 
   return (
     <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-XG9P3JS5XJ"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-XG9P3JS5XJ');
+        `}
+      </Script>
       <Head>
         <title>{settings.title}</title>
       </Head>
