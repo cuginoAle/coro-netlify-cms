@@ -3,28 +3,7 @@
   "headings": "# Concorso Corale Internazionale InCoroNazioni\n\n# \"Antonio Grazio Ferraro\"",
   "picture": "/images/in_coro_nazioni.png",
   "description": "",
-  "allegati": [
-    {
-      "title": "Modulo iscrizione 2023",
-      "fileUrl": "/docs/modulo_iscrizione_2023.pdf",
-      "lang": "it"
-    },
-    {
-      "title": "Bando di concorso 2023",
-      "fileUrl": "/docs/bando_concorso_2023.pdf",
-      "lang": "it"
-    },
-    {
-      "title": "Competition Notice 2023",
-      "fileUrl": "/docs/competition_notice_2023.pdf",
-      "lang": "en"
-    },
-    {
-      "title": "Entry Form 2023",
-      "fileUrl": "/docs/entry_form_2023.pdf",
-      "lang": "en"
-    }
-  ],
+  "allegati": [],
   "short_title": "Concorso Corale Internazionale InCoroNazioni",
   "short_description": "#### \"Antonio Grazio Ferraro\"",
   "links": [
