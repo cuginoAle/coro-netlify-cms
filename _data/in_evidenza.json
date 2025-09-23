@@ -3,7 +3,13 @@
   "headings": "# Concorso Corale Internazionale InCoroNazioni\n\n# \"Antonio Grazio Ferraro\"",
   "picture": "/images/in_coro_nazioni.png",
   "description": "",
-  "allegati": [],
+  "allegati": [
+    {
+      "lang": "it",
+      "fileUrl": "/docs/lista-brani-coro-settembre-2025.pdf",
+      "title": "REPERTORIO del Coro (al 23.09.2025)"
+    }
+  ],
   "short_title": "Concorso Corale Internazionale InCoroNazioni",
   "short_description": "#### \"Antonio Grazio Ferraro\"",
   "links": [
